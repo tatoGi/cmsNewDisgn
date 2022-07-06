@@ -1,0 +1,211 @@
+@font-face {
+  font-family: 'Arial MT';
+  src: url('../fonts/ArialMTBlack.woff2') format('woff2'),
+      url('../fonts/ArialMTBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arial Narrow';
+  src: url('../fonts/ArialNarrow.woff2') format('woff2'),
+      url('../fonts/ArialNarrow.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arial Th';
+  src: url('../fonts/ArialTh.woff2') format('woff2'),
+      url('../fonts/ArialTh.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Italic.woff2') format('woff2'),
+      url('../fonts/Lato-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-BoldItalic.woff2') format('woff2'),
+      url('../fonts/Lato-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Heebo';
+  src: url('../fonts/Heebo-Regular.woff2') format('woff2'),
+      url('../fonts/Heebo-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Black.woff2') format('woff2'),
+      url('../fonts/Lato-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-BlackItalic.woff2') format('woff2'),
+      url('../fonts/Lato-BlackItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geo_Arial';
+  src: url('GeoArialItalic.woff2') format('woff2'),
+      url('GeoArialItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arial GEO';
+  src: url('../fonts/ArialGEOBold.woff2') format('woff2'),
+      url('../fonts/ArialGEOBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Bold.woff2') format('woff2'),
+      url('../fonts/Lato-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arial GEO';
+  src: url('../fonts/ArialGEOItalic.woff2') format('woff2'),
+      url('../fonts/ArialGEOItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-LightItalic.woff2') format('woff2'),
+      url('../fonts/Lato-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato Hairline';
+  src: url('../fonts/Lato-HairlineItalic.woff2') format('woff2'),
+      url('../fonts/Lato-HairlineItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Light.woff2') format('woff2'),
+      url('../fonts/Lato-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Regular.woff2') format('woff2'),
+      url('../fonts/Lato-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato Hairline';
+  src: url('../fonts/Lato-Hairline.woff2') format('woff2'),
+      url('../fonts/Lato-Hairline.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?obrt9p');
+    src:  url('../fonts/icomoon.eot?obrt9p#iefix') format('embedded-opentype'),
+      /* url('../fonts/icomoon.ttf?obrt9p') format('truetype'), */
+      url('../fonts/icomoon.woff?obrt9p') format('woff'),
+      url('../fonts/icomoon.svg?obrt9p#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    /* speak: never; */
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-tw:before {
+    content: "\e904";
+    /* color: #e3662a; */
+  }
+  .icon-face:before {
+    content: "\e905";
+    /* color: #e3662a; */
+  }
+  .icon-inst:before {
+    content: "\e906";
+    /* color: #e3662a; */
+  }
+  .icon-box:before {
+    content: "\e900";
+    color: #e3662a;
+  }
+  .icon-Calling:before {
+    content: "\e901";
+    color: #f08b55;
+  }
+  .icon-Send:before {
+    content: "\e902";
+    color: #f08b55;
+  }
+  .icon-Time:before {
+    content: "\e903";
+    color: #f08b55;
+  }
+  

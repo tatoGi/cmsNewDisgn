@@ -1,0 +1,2611 @@
+
+@media (max-width:1638px){
+    :root{
+        --nav-fonts:16px;
+    }
+    html:lang(ka) .recent-item .recent-text h2{
+        font-size: 22px;
+    }
+    html:lang(ka) .main-item .main-text h1{
+        font-size: 26px;
+    }
+    html:lang(ka) .text-area .title-text h1,
+    html:lang(ka) .project-text h1,
+    html:lang(ka) .service-text-box h1,
+    html:lang(ka) .team-list-links h1,
+    html:lang(ka) .person-box h1,
+    html:lang(ka) .contact-box h1,
+    html:lang(ka) .services-text h1,
+    html:lang(ka) .recent-project-text h1{
+        font-size: 26px;
+    }
+    .slick-slide .project-img{
+        height: 301px;
+        width: 94.5%;
+    }
+    .slick-cloned .project-img{
+        height: 301px;
+        width: 94.5%;
+    }
+    .slick-active .project-img{
+        height: 345px;
+        width: 87%;
+    }
+    .slick-center .project-img{
+        height: 404px;
+        width: 95%;
+    }
+    .navigation{
+        padding-top: 11px;
+    }
+    .navigation nav li{
+        margin:0 5px;
+    }
+    .navigation nav li:last-child{
+        margin:0 0 0 15px;
+    }
+    .navigation nav li .nav-links{
+        padding: 0 10px 30px 10px;
+    }
+    .navigation nav li:last-child .nav-links{
+        padding: 12px 26px;
+    }
+    .card-padding {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .card{
+        height: 219px;
+    }
+    .services-item{
+        height: 425px;
+    }
+    .recent-item .recent-project-img{
+        height: 330px;
+    }
+    .projects{
+        height: 998px;
+    }
+    /* Project Detail Page */
+
+    .detail-image{
+        height: 316px;
+    }
+    /* Project Detail Page */
+    /* Services Page */
+
+    .service-box-right-img .service-box-img{
+        height: 315px;
+    }
+    /* Services Page */
+    /* TEAM DET */
+
+    .right-side-img .team-right-img{
+        width: 350px;
+        height: 350px
+    }
+    .person-box h1{
+        font-size: 40px;
+    }
+
+    /* TEAM DET */
+    /* CONTACT PAGE */
+
+    .contact-box .contact-links{
+        gap: 20px;
+    }
+    .contact-box .contact-links span{
+        margin-bottom: 0;
+    }
+    /* CONTACT PAGE */
+}
+ 
+@media (max-width: 1399px) {
+    :root{
+        --fontLarge:48px;
+        --nav-fonts:14px;
+        --font1:32px;
+        --font2:26px;
+        --font3:23px;
+        --font4:20px;
+        --font5:18px;
+        --font7:14px;
+        --font04:22px;
+    }
+    .search-results .text{
+        max-height: 94px;
+    }
+/* Home Page */
+
+    .header-container, .header-container2{
+        height: 78px;
+    }
+    .head-cont{
+        align-items: center;
+        padding-top: 18px;
+    }
+    .head-cont .logo{
+        height: 44px;
+    }
+    .navigation{
+        padding-top: 8px;
+    }
+    .navigation nav li .nav-links{
+        font-size: var(--nav-fonts);
+        padding: 0 10px 20px 10px;
+    }
+    .navigation nav li:last-child .nav-links{
+        padding: 10px 20px;
+    }
+    .navigation nav li .nav-links::before{
+        bottom: 12px;
+    }
+    .header-bg-2 .navigation nav li .nav-links::before{
+        bottom: 12px;
+    }
+    .navigation nav li .submenu{
+        top: 40px;
+        padding:0 10px;
+        max-width: 200px;
+    }
+    .navigation nav li .submenu a{
+        font-size: var(--nav-fonts);
+        margin-bottom: 10px;
+        line-height: 18px;
+    }
+    .search-box{
+        padding-top: 10px;
+    }
+    
+    .search-box form .search-form-box{
+        height: 34px;
+        width: 83px;
+    }
+    .search-box form input{
+        font-size: 14px;
+    }
+    .search-box form button{
+        padding-top: 3px;
+    }
+    .search-box form button span{
+        font-size: 18px;
+    }
+    .search-box .lang-box .lang a{
+        font-size: var(--font7);
+    }
+    .search-box .line, .header-bg .search-box .line{
+        margin: 0 15px;
+        height: 25px;
+    }
+
+    /* Main Banner */
+    
+    .main-banner{
+        height: 636px;
+    }
+    .main-item{
+        height: 636px!important;
+    }
+    .main-item .main-text{
+        width: 710px;
+    }
+    .main-item .main-text h1{
+        line-height: 30px;
+        margin-bottom: 15px;
+        max-height: 60px;
+    }
+    .main-item .main-text .text{
+        width: 65%;
+        line-height: 21px;
+        max-height: 64px;
+    }
+    /* Main Banner */
+
+    /* About Section */
+
+    .about-section{
+        padding: 50px 0;
+    }
+    .about-content{
+        padding: 0 35px;
+    }
+    .about-content .about-text h1{
+        line-height: 30px;
+    }
+    .about-content .about-text .text{
+        margin-top: 25px;
+        margin-bottom: 40px;
+    }
+    .card{
+        height: 170px;
+        margin-bottom: 25px;
+    }
+    .card span{
+        font-size: var(--fontLarge);
+        line-height: 57px;
+    }
+    .card span:first-child > * {
+        font-size: var(--fontLarge);
+    }
+    .card-padding{
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+    /* About Section */
+
+    /* Projects */
+
+    .projects{
+        padding: 50px 0;
+        height: 728px;
+    }
+    .members-link{
+        bottom: 50px;
+    }
+    .project-text{
+        margin-bottom: 50px;
+    }
+    .project-text h1{
+        line-height: 22px;
+    }
+    .slick-slide .project-img{
+        height: 234px;
+        width: 94.5%;
+    }
+    .slick-cloned .project-img{
+        height: 234px;
+        width: 94.5%;
+    }
+    .slick-active .project-img{
+        height: 265px;
+        width: 87%;
+    }
+    .slick-center .project-img{
+        height: 307px;
+        width: 95%;
+    }
+    .project-person{
+        margin-top: 20px;
+        height: 62px!important;
+    }
+    .project-person h1{
+        margin-bottom: 10px;
+        line-height: 28px;
+    }
+    .project-person h2{
+        margin-bottom: 0;
+        line-height: 22px;
+    }
+    .members-link{
+        margin-top: 40px;
+    }
+    /* Projects */
+
+    /* Services */
+
+    .services{
+        padding: 50px 0 30px 0;
+    }
+    .services-text h1{
+        line-height: 32px;
+    }
+    .services-text{
+        margin-bottom: 50px;
+    }
+    .services-item{
+        height: 316px;
+        margin-bottom: 24px;
+        /* padding: 0 40px; */
+    }
+    .services-item .white-box{
+        width: 89px;
+        height: 89px;
+    }
+    .services-item h2{
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-size: var(--font7);
+        line-height: 17px;
+    }
+    .services-item .text{
+        font-size: var(--font7);
+        line-height: 21px;
+        max-height: 64px;
+    }
+    /* Services */
+
+    /* Recent Project */
+
+    .recent-projects{
+        padding: 50px 0 25px 0;
+    }
+    .recent-project-text h1{
+        line-height: 39px;
+        margin-bottom: 15px;
+    }
+    .recent-project-text{
+        margin-bottom: 50px;
+    }
+    .projects-links .left-side-links button{
+        margin-right: 25px;
+        margin-bottom: 25px;
+        line-height: 22px;
+    }
+    .recent-item{
+        margin-bottom: 25px;
+    }
+    .recent-item .recent-project-img{
+        height: 273px;
+        margin-bottom: 10px;
+    }
+    .recent-item .recent-text .text{
+        font-size: 18px;
+        line-height: 28px;
+        margin-top: 12px;
+    }
+    /* Recent Project */
+    /* Advert */
+
+    .contact-us-11{
+        padding: 60px 0;
+    }
+    .advert-item{
+        line-height: 37px;
+        max-height: 75px;
+        overflow: hidden;
+    }
+    /* Advert */
+    /* Footer */
+    .footer{
+        padding: 50px 0;
+    }
+    .footer-info a{
+        margin-bottom: 10px;
+        line-height: 18px;
+    }
+    .footer-logo{
+        width: 132px;
+        height: 112px;
+        margin-bottom: 25px;
+    }
+    .socials{
+        padding-left: 10px;
+    }
+    .social-icon{
+        margin-left: 15px;
+    }
+    .social-icon span{
+        font-size: 18px;
+    }
+    /* Footer */
+    /* Home Page */
+    /*  About Page */
+    .home-banner{
+        /* margin-top: 78px; */
+        height: 290px;
+    }
+    .bandcamp{
+        margin-top: 20px;
+    }
+    .bandcamp ul li a{
+        font-size: 20px;
+    }
+    .text-section{
+        padding: 20px 0 0 0;
+    }
+    .border-first:first-child .text-area .title-text{
+        /* margin-bottom: 10px; */
+        padding-top: 10px;
+    }
+    .border-first:first-child .text-area .title-text h1{
+        line-height: 32px;
+        margin-bottom: 10px;
+    }
+    .text-area .title-text h1{
+        line-height: 32px;
+        margin-bottom: 10px;
+    }
+    .text-area .text{
+        font-size: 20px;
+        line-height: 27px;
+    }
+    .right-side-img{
+        padding-right: 0;
+    }
+    .right-side-img .right-img{
+        width: 211px;
+        height: 198px;
+    }
+    .p-t-2{
+        padding: 50px 0 25px 0;
+        margin-top: 25px;
+    }
+    /*  About Page */
+    /* Project Page */
+
+    .team-list-links{
+        margin-bottom: 30px;
+    }
+    .p-t{
+        padding-top: 0;
+    }
+    .pagination-box li a{
+        font-size: 28px;
+    }
+    .pagination{
+        padding-bottom: 50px;
+        margin-top: 0;
+    }
+    /* Project Page */
+     /* Project Detail Page */
+
+     .p-r-1{
+        padding-right: calc(var(--bs-gutter-x) * 0.5);;
+     }
+     .p-r-2{
+        padding-right: calc(var(--bs-gutter-x) * 0.5);;
+    }
+    .detail-text-area h1{
+        font-size: 26px;
+        line-height: 32px;
+        margin-bottom: 10px;
+    }
+    .detail-text-area h2{
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 10px;
+    }
+    .detail-text-area .text{
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .detail-image{
+        padding: 0;
+        height: 270px;
+        margin-bottom: 25px;
+    }
+    .p-tt-2{
+        padding: 25px 0 25px 0;
+    }
+    /* Project Detail Page */
+     /* Services Page */
+
+     .service-box-right-img .service-box-img{
+        height: 250px;
+    }
+    .service-text-box h1{
+        line-height: 32px;
+        margin-bottom: 15px;
+    }
+    .img-icon{
+        width: 59px;
+        height: 59px;
+        border-radius: 7px;
+    }
+    .service-text-box .text{
+        font-size: 20px;
+        line-height: 30px;
+        max-height: 120px;
+    }
+    .service-text-box ul{
+        margin-bottom: 25px;
+    }
+    .service-text-box ul li a{
+        line-height: 24px;
+    }
+    .service-text-box .booking-service{
+        font-size: 14px;
+    }
+    /* Services Page */
+    /* TEAM PAGE */
+    .team-members-list{
+        padding: 30px 0 0 0 ;
+    }
+    .team-members .members-img{
+        height: 235px;
+        border-radius: 10px;
+    }
+    .team-members .members-img img{
+        border-radius: 10px;
+    }
+    .m-b-2{
+        margin-bottom: 20px;
+    }
+    .right-side-img .img-r{
+        margin-bottom: 20px;
+    }
+    /* .add-p-r{
+        padding: 0;
+    } */
+    .team-members{
+        padding-right: 11px;
+    }
+    .team-members .members-info h1{
+        font-size: 16px;
+        line-height: 18px;
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 8px;
+    }
+    .team-members .members-info h2{
+        font-size: 14px;
+    }
+    .team-members .members-info span{
+        /* width: 20px; */
+        height: 17px;
+    }
+    .team-members .members-info span img{
+        width: 100%;
+        height: 100%;
+    }
+    /* TEAM PAGE */
+    /* TEAM DET */
+    .person-box h1{
+        font-size: 36px;
+        line-height: 32px;
+        margin-bottom: 20px;
+    }
+    .right-side-img .team-right-img{
+        width: 296px;
+        height: 296px;
+        border-radius: 10px;
+    }
+    .right-side-img .team-right-img img{
+        border-radius: 10px;
+    }
+    .person-info{
+        padding: 30px 0 0 0;
+    }
+    .person-box .person-special ul li{
+        margin-right: 35px;
+    }
+    .person-box .person-special .person-contact-link {
+        padding: 9px 22px;
+        font-size: 16px;
+    }
+    .person-info-text{
+        margin-top: 50px;
+        padding-right: 0;
+    }
+    .person-info-text h3{
+        font-size: 22px;
+        line-height: 30px;  
+        margin-bottom: 15px;
+        padding-right: 16%;
+    }
+    .person-info-text .text{
+        font-size: 20px;
+        line-height: 32px;
+    }
+    .person-info-text a{
+        font-size: 18px;
+    }
+    .personal-projects{
+        margin-top: 25px;
+    }
+    .personal-projects-list li a{
+        font-size: 20px;
+    }
+    /* TEAM DET */
+    /* Contact Page */
+
+    .contact-box h1{
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    .contact-box .contact-links span{
+        line-height: 22px;
+    }
+    .right-img-contact {
+        margin-top: 40px;
+        width: 167px;
+        height: 167px;
+    }
+    .map-side{
+        padding: 0 0 60px 0;
+    }
+    .contact-form{
+        padding: 0 0 80px 0;
+    }
+    .map-bg{
+        height: 315px;
+    }
+    .map-bg-2{
+        height: 270px;
+    }
+    .map-box{
+        padding: 50px;
+        height: 525px;
+    }
+    /* Contact Page */
+    /* Search Page */
+    .search-section{
+        padding: 50px 0;
+    }
+    /* Search Page */
+
+    .services-boxes:last-child,
+    .special-row-box:last-child{
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width:1199px) {
+    :root{
+        --fontLarge:42px;
+        --nav-fonts:12px;
+        --font1:28px;
+        --font2:22px;
+        --font3:20px;
+        --font4:18px;
+        --font5:16px;
+        --font7:12px;
+        --font04:18px;
+    }
+    html:lang(ka) .recent-item .recent-text h2{
+        font-size: 18px;
+    }
+    html:lang(ka) .main-item .main-text h1{
+        font-size: 20px;
+    }
+    html:lang(ka) .main-item .main-text .text{
+        font-size: 14px;
+    }
+    html:lang(ka) .advert-item{
+        font-size: 26px;
+    }
+    html:lang(ka) .project-person h1, html:lang(ka) .project-person h2{
+        font-size: 18px;
+    }
+    html:lang(ka) .text-area .title-text h1,
+    html:lang(ka) .project-text h1,
+    html:lang(ka) .service-text-box h1,
+    html:lang(ka) .team-list-links h1,
+    html:lang(ka) .person-box h1,
+    html:lang(ka) .contact-box h1,
+    html:lang(ka) .services-text h1,
+    html:lang(ka) .recent-project-text h1{
+        font-size: 20px;
+    }
+    .search-box form .search-form-box{
+        width: 78px;
+        height: 30px;
+    }
+    .search-box form .search-form-box:focus-within {
+        width: 160px;
+    }
+    .search-box form input{
+        padding-left: 35px;
+    }
+    .search-box form button span{
+        font-size: 16px;
+    }
+    .navigation{
+        padding-top: 6px;
+    }
+    .navigation nav li{
+        margin: 0 5px;
+    }
+    .navigation nav li .nav-links{
+        padding: 0 5px 20px 5px;
+    }
+    .navigation nav li:last-child{
+        margin: 0 0 0 10px;
+    }
+    .navigation nav li:last-child .nav-links{
+        padding: 7px 15px;
+        border-radius: 6px;
+    }
+    .navigation nav li .submenu a{
+        line-height: 16px;
+        margin-bottom: 8px;
+    }
+    .search-box .lang-box .lang{
+        padding-top: 5px;
+    }
+    .about-section{
+        padding: 40px 0;
+    }
+    .card-padding{
+        padding: 0 12px;
+    }
+    .card {
+        height: 155px;
+        margin-bottom: 25px;
+    }
+    .about-content .about-text .text{
+        line-height: 24px;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+    .projects{
+        padding: 40px 0;
+        height: 638px;
+    }
+    .members-link{
+        bottom: 40px;
+    }
+    .project-text{
+        margin-bottom: 40px;
+    }
+    .project-text .text{
+        line-height: 22px;
+        max-height:44px;
+    }
+    .slick-slide .project-img{
+        height: 217px;
+        width: 94.5%;
+    }
+    .slick-cloned .project-img{
+        height: 217px;
+        width: 94.5%;
+    }
+    .slick-active .project-img{
+        height: 250px;
+        width: 87%;
+    }
+    .slick-center .project-img{
+        height: 277px;
+        width: 95%;
+    }
+    .project-person{
+        margin-top: 15px;
+        height: 55px!important;
+    }
+    .project-person h1{
+        line-height: 26px;
+        margin-bottom: 8px;
+    }
+    .project-person h3{
+        line-height: 18px;
+    }
+    .members-link{
+        margin-top: 30px;
+    }
+    .services{
+        padding: 40px 0 20px 0;
+    }
+    .services-text h1{
+        line-height: 26px;
+    }
+    .services-text{
+        margin-bottom: 40px;
+    }
+    .services-item{
+        height: 296px;
+    }
+    .recent-projects{
+        padding: 40px 0 20px 0;
+    }
+    .recent-project-text h1{
+        line-height: 36px;
+    }
+    .recent-project-text{
+        margin-bottom: 40px;
+    }
+    .recent-item .recent-project-img{
+        height: 220px;
+    }
+    .recent-item{
+        margin-bottom: 20px;
+    }
+    .recent-item .recent-text .text{
+        line-height: 22px;
+        max-height: 67px;
+    }
+    .recent-item .recent-text .recent-text-center{
+        height: 50px;
+    }
+    .recent-item .recent-text h2{
+        line-height:26px;
+    }
+    .contact-us-11{
+        padding: 50px 0;
+    }
+    .footer{
+        padding: 40px 0;
+    }
+    .footer-logo {
+        width: 130px;
+        height: 106px;
+        margin-bottom: 20px;
+    }
+    .footer-info h4{
+        margin-bottom: 18px;
+    }
+    .footer-info a{
+        margin-bottom: 8px;
+    }
+    /*  About Page */
+    .p-t-2{
+        padding: 40px 0 20px 0;
+        margin-top: 20px;
+    }
+    .card{
+        margin-bottom: 20px;
+    }
+    .card span:last-child{
+        line-height: 40px;
+    }
+    .text-area .text {
+        font-size: 18px;
+        line-height: 25px;
+    }
+    .text-area{
+        margin-bottom: 30px;
+    }
+    .right-side-img .right-img {
+        width: 170px;
+        height: 160px;
+        margin-bottom: 30px;
+    }
+    .text-area .title-text h1{
+        line-height: 28px;
+    }
+    .card span:first-child{
+        line-height: 50px;
+    }
+    .card span:last-child{
+        line-height: 36px;
+    }
+    /* About Page */
+    /* Project Page */
+
+    .team-list-links{
+        margin-bottom: 20px;
+    }
+    .p-t{
+        padding-top: 0;
+    }
+    .pagination-box li a{
+        font-size: 24px;
+    }
+    .pagination{
+        padding-bottom: 40px;
+        margin-top: 0;
+    }
+    /* Project Page */
+
+    /* Project Detail Page */
+    .detail-image{
+        padding: 0;
+        height: 220px;
+        margin-bottom: 25px;
+    }
+    .detail-text-area .text{
+        margin-bottom: 30px;
+        font-size: 16px;
+    }
+    .p-tt-2{
+        padding: 15px 0 20px 0;
+    }
+    /* Project Detail Page */
+     /* Services Page */
+     .services-boxes{
+         padding: 40px 0 40px 0;
+     }
+     .services-boxes:last-child,
+     .special-row-box:last-child{
+        margin-bottom: 40px;
+    }
+     .special-row-box{
+        width: 100%;
+        padding: 40px 0 15px 0;
+    }
+    
+    .special-row-box:first-child{
+        padding: 0px 0 15px 0;
+    }
+     .service-box-right-img .service-box-img{
+        height: 230px;
+    }
+    .service-text-box h1{
+        line-height: 32px;
+        margin-bottom: 15px;
+    }
+    .img-icon{
+        width: 59px;
+        height: 59px;
+        border-radius: 7px;
+    }
+    .service-text-box .text{
+        font-size: 18px;
+        line-height: 24px;
+        max-height: 100px;
+        margin-bottom: 15px;
+    }
+    .service-text-box ul{
+        margin-bottom: 25px;
+    }
+    .service-text-box ul li a{
+        line-height: 24px;
+    }
+    .service-text-box .booking-service{
+        font-size: 14px;
+    }
+    /* Services Page */
+    /* TEAM PAGE */
+
+    .team-members .members-img{
+        height: 210px;
+    }
+    /* TEAM PAGE */
+
+     /* TEAM DET */
+     .person-box h1{
+        font-size: 28px;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+    .right-side-img .team-right-img{
+        width: 250px;
+        height: 250px;
+        border-radius: 10px;
+    }
+    .right-side-img .team-right-img img{
+        border-radius: 10px;
+    }
+    .person-info{
+        padding: 20px 0 0 0;
+    }
+    .person-box .person-special ul li{
+        margin-right: 35px;
+    }
+    .person-box .person-special .person-contact-link {
+        padding: 9px 22px;
+        font-size: 16px;
+    }
+    .person-info-text{
+        margin-top: 30px;
+        padding-right: 0;
+    }
+    .person-info-text h3{
+        font-size: 18px;
+        line-height: 26px;  
+        margin-bottom: 15px;
+        padding-right: 16%;
+    }
+    .person-info-text .text{
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .person-info-text a{
+        font-size: 16px;
+    }
+    .personal-projects{
+        margin-top: 25px;
+    }
+    .personal-projects-list li a{
+        font-size: 18px;
+    }
+    /* TEAM DET */
+    /* Contact Page */
+    .map-side{
+        padding: 0 0 60px 0;
+    }
+    .contact-form{
+        padding: 0 0 60px 0;
+    }
+    .contact{
+        padding-bottom: 60px;
+    }
+    .map-bg{
+        height: 280px;
+    }
+    .map-bg-2{
+        height: 200px;
+    }
+    .map-box{
+        padding: 40px;
+        height: 425px;
+    }
+    .form-box form textarea{
+        height: 160px;
+    }
+    /* Contact Page */
+    /* Search Page */
+    .search-section{
+        padding: 40px 0;
+    }
+    /* Search Page */
+    .advert-item {
+        max-height: 69px;
+    }
+}
+
+@media (max-width:991px){
+    :root{
+        --fontLarge:33px;
+        --nav-fonts:12px;
+        --font1:20px;
+        --font2:20px;
+        --font3:14px;
+        --font4:18px;
+        --font5:16px;
+        --font7:12px;
+    }
+    html:lang(ka) .recent-item .recent-text h2{
+        font-size: 14px;
+    }
+    html:lang(ka) .main-item .main-text h1{
+        font-size: 18px;
+    }
+    html:lang(ka) .main-item .main-text .text{
+        font-size: 14px;
+    }
+    html:lang(ka) .services-item h2{
+        font-size: 12px;
+    }
+    html:lang(ka) .advert-item{
+        font-size: 20px;
+        min-height: 30px;
+    }
+    html:lang(ka) .project-person h1, html:lang(ka) .project-person h2{
+        font-size: 16px;
+    }
+    html:lang(ka) .text-area .title-text h1,
+    html:lang(ka) .project-text h1,
+    html:lang(ka) .service-text-box h1,
+    html:lang(ka) .team-list-links h1,
+    html:lang(ka) .person-box h1,
+    html:lang(ka) .contact-box h1,
+    html:lang(ka) .services-text h1,
+    html:lang(ka) .recent-project-text h1{
+        font-size: 18px;
+    }
+    .search-results .text{
+        max-height: 85px;
+    }
+    /* Home Page */
+    .burger{
+        display: block;
+        position: relative;
+    }
+    .burger-lines{
+        width: 30px;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        overflow: hidden;
+        height: 35px;
+        padding-top: 5px;
+        z-index: 5;
+        position: relative;
+    }
+    .burg-line{
+        width: 100%;
+        height: 4px;
+        background-color: #fff;
+        border-radius: 4px;
+        transition: 0.4s;
+    }
+    .header-bg .burg-line,
+    .header-bg-2 .burg-line{
+        width: 100%;
+        height: 4px;
+        background-color: #1A1A1A;
+        border-radius: 4px;
+        transition: 0.4s;
+    }
+    .burg-line:nth-child(2){
+        margin:  4px 0;
+    }
+    .opens .burger-lines .burg-line:nth-child(2){
+        transform: translateX(35px);
+        background-color: #1A1A1A;
+    }
+    .opens .burger-lines .burg-line:first-child{
+        transform: rotate(45deg) translate(10px, 10px);
+        background-color: #1A1A1A;
+    }
+    .opens .burger-lines .burg-line:last-child{
+        transform: rotate(-45deg) translate(1px, -2px);
+        background-color: #1A1A1A;
+    }
+    .burg-menu{
+        width: 400px;
+        height: 101vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: -20px;
+        right: -1200px;
+        z-index: 1;
+    }
+    .opens .burg-menu{
+        right: -148px;
+        width: 992px;
+        transition: 0s;
+    }
+    .burger-links{
+        width: 0px;
+        height: 100%;
+        background: #fff;
+        float: right;
+        transition: 0.5s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 80px 0;
+    }
+    .burger-overflow-cont{
+        /* display: flex; */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-y: auto;
+        height: 100%;
+        padding: 0 14px 0 20px;
+        margin-top: 40px;
+    }
+    .burger-overflow-cont::-webkit-scrollbar {
+        width: 4px;
+      }
+      .burger-overflow-cont::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 2px grey; 
+        border-radius: 10px;
+    }
+    .burger-overflow-cont::-webkit-scrollbar-thumb {
+        background: #1A1A1A; 
+        border-radius: 10px;
+      }
+      
+    .opens .burg-menu .burger-links{
+        width: 520px;
+    }
+    .burger-links form{
+        margin-top: 0;
+        width: fit-content;
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+    .burger form .burger-search{
+        width: 238px;
+        height: 40px;
+        position: relative;
+    }
+    .burger form .burger-search input{
+        border: none;
+        outline: none;
+        height: 100%;
+        width: 100%;
+        background: #F1F1F2;
+        padding-left: 45px;
+        color: #1A1A1A;
+        font-size: 16px;
+        font-family: 'Lato';
+        line-height: 19px;
+        border-radius: 8px;
+    }
+    .burger form .burger-search button{
+        position: absolute;
+        left: 10px;
+        top: 0;
+        height: 100%;
+        border: none;
+        padding: 3px 2px 0 2px;
+        background: transparent;
+    }
+    .burger form .burger-search button span{
+        font-size: 24px;
+        color: #1A1A1A;
+    }
+   .burger-links ul{
+        padding: 0;
+        display: grid;
+        place-content: center;
+        width: 80%;
+        margin: 0 auto;
+   }
+   .burger-links ul .lang-box .lang{
+       text-align: center;
+   }
+   .burger-links ul li{
+       list-style: none;
+       margin-bottom: 30px;
+       position: relative;
+       text-align: center;
+   }
+   .burger-links ul li a{
+       font-size: 26px;
+       color: #1A1A1A;
+       font-family: 'Lato';
+       font-weight: bold;
+       margin-right: 10px;
+   }
+   .burger-links ul li .burger-submenu{
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       overflow: hidden;
+       max-height: 0px;
+       transition: 0.4s;
+   }
+   .burger-links ul li .burger-submenu a{
+    font-size: 20px;
+    color: #1A1A1A;
+    font-family: 'Lato';
+    font-weight: bold;
+   }
+   .burger-links ul li span{
+       cursor: pointer;
+       padding: 0 3px 1px 3px;
+       position: absolute;
+       right: -20px;
+       top: 9px;
+       transition: 0.4s;
+       display: none;
+   }
+   .burger-links ul li span i{
+       font-size: 14px;
+   }
+   .burger-links ul li.burger-link-active .burger-submenu{
+       max-height: 200px;
+   }
+   .burger-links ul li.burger-link-active span{
+       transform: rotate(180deg);
+   }
+
+   .burger-links ul li.arrow-hide span{
+        display: block;
+    }
+
+    .header-container, .header-container2{
+        height: 70px;
+    }
+    .navigation, .search-box{
+        display: none;
+    }
+    .head-cont {
+        padding-top: 16px;
+    }
+    .head-cont .logo{
+        height: 37px;
+    }
+
+
+    /* Main Banner */
+    .main-banner{
+        height: 447px;
+    }
+    .main-item{
+        height: 447px!important;
+    }
+    .main-item .main-text{
+        max-width: 562px;
+        animation: initial;
+    }
+
+    .main-item .main-text h1{
+        line-height: 24px;
+        margin-bottom: 10px;
+        max-height: 48px;
+        animation: initial;
+    }
+    .main-item .main-text .text {
+        line-height: 18px;
+        max-height: 57px;
+    }
+    #left-arrow{
+        top: 53%;
+    }
+    #right-arrow{
+        top: 53%;
+    }
+
+    /* Main Banner */
+
+    /* About Section */
+
+    .about-section {
+        padding: 35px 0;
+    }
+    .about-content .about-text h1{
+        line-height: 24px;
+    }
+    .about-content .about-text .text{
+        max-height: 142px;
+        font-size: 16px;
+    }
+    .card span{
+        line-height: 40px;
+    }
+    .card span:last-child{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .card span:first-child > * {
+        font-size: 35px;
+    }
+    .card {
+        height: 119px;
+        margin-bottom: 20px;
+    }
+    .about-content .more-link{
+        font-size: 12px;
+        padding: 6px 13px;
+        line-height: 15px;
+        border-radius: 5px;
+    }
+    /* About Section */
+    /* Projects Section */
+
+    .projects{
+        padding: 35px 0;
+        height: 587px;
+    }
+    .more-link{
+        bottom: 35px;
+    }
+    .project-text h1{
+        margin-bottom: 10px;
+    }
+    .project-text{
+        margin-bottom: 30px;
+    }
+    .project-person h1{
+        line-height: 17px;
+    }
+    .project-person h2{
+        line-height: 15px;
+        font-size: 14px;
+    }
+    .project-person{
+        height: 42px!important;
+    }
+    .members-link{
+        margin-top: 25px;
+    }
+    .projects .members-link .more-link{
+        font-size: 12px;
+        padding: 8px 18px;
+        border-radius: 5px;
+    }
+
+    .slick-slide .project-img{
+        height: 214px;
+        width: 94.5%;
+    }
+    .slick-cloned .project-img{
+        height: 214px;
+        width: 94.5%;
+    }
+    .slick-active .project-img{
+        height: 245px;
+        width: 87%;
+    }
+    .slick-center .project-img{
+        height: 287px;
+        width: 95%;
+    }
+    /* Project Section */
+    /* Service Section */
+
+    .services{
+        padding: 35px 0 20px 0;
+    }
+    .services-text h1{
+        line-height: 24px;
+        margin-bottom: 10px;
+    }
+    .services-text{
+        margin-bottom: 30px;
+    }
+    .add-color{
+        padding:  0 5px;
+    }
+    .services-item{
+        height: 222px;
+        margin-bottom: 10px;
+    }
+    .services-item .white-box{
+        width: 62px;
+        height: 62px;
+        border-radius: 7px;
+    }
+    .services-item h2{
+        font-size: 14px;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        margin-bottom: 15px;
+    }
+    .services-item .text{
+        font-size: 12px;
+        line-height: 14px;
+        max-height: 42px;
+    }
+    /* Service Section */
+    /* Recent Project */
+
+    .recent-projects{
+        padding: 35px 0 20px 0;
+    }
+    .recent-project-text h1{
+        line-height: 24px;
+        margin-bottom: 10px;
+    }
+    .recent-project-text h3{
+        line-height: 22px;
+        max-height: 44px;
+    }
+    .recent-project-text{
+        margin-bottom: 30px;
+    }
+    .projects-links .left-side-links button{
+        font-size: 14px;
+        line-height: 17px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+    .all-projects-link{
+        font-size: 12px;
+        line-height: 15px;
+        padding-bottom: 3px;
+    }
+    .pad-l-r{
+        padding: 0 6px;
+    }
+    .recent-item{
+        margin-bottom: 15px;
+    }
+    .recent-item .recent-project-img{
+        height: 180px;
+        border-radius: 10px;
+    }
+    .recent-item .recent-project-img img{
+        border-radius: 10px;
+    }
+    .recent-item .recent-text .recent-text-center{
+        height: 45px;
+    }
+    .recent-item .recent-text h2{
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .recent-item .recent-text .text{
+        font-size: 14px;
+        margin-top: 8px;
+        line-height: 18px;
+        max-height: 55px;
+    }
+    /* Recent Project */
+
+    /* Advet- section */
+
+    .contact-us-11{
+        padding: 40px 0;
+    }
+    .advert-item{
+        font-size: 17px;
+        line-height: 24px;
+        max-height: 50px;
+    }
+    .advert-contact{
+        padding: 7px 17px;
+        border-radius: 5px;
+    }
+    /* Advert Sectio */
+    /* Footer */
+    .footer{
+        padding: 35px 0;
+    }
+    .footer-logo{
+        width: 96px;
+        height: 78px;
+        margin-bottom: 15px;
+    }
+    .footer-info h4{
+        margin-bottom: 12px;
+        line-height: 17px;
+    }
+    .footer-info a{
+        font-size: 10px;
+        line-height: 14px;
+    }
+    .social-icon{
+        margin-left: 10px;
+    }
+    .social-icon span{
+        font-size: 12px;
+    }
+    /* Footer */
+        /* Home Page */
+      /* About Page */
+
+      .home-banner{
+          /* margin-top: 70px; */
+          height: 220px;
+      }
+      .bandcamp ul{
+          flex-wrap: wrap;
+          gap: 10px;
+      }
+      .bandcamp ul li{
+          margin: 0;
+          line-height: 14px;
+      }
+      .bandcamp ul li a{
+          font-size: 16px;
+      }
+      .text-area .text{
+          font-size: 14px;
+          line-height: 20px;
+      }
+     
+      .border-first:first-child .text-area .title-text {
+        padding-top: 5px;
+    }
+    .border-first:first-child .text-area .title-text h1{
+        line-height: 24px;
+        white-space: nowrap;
+    }
+    .right-side-img .right-img {
+        width: 140px;
+        height: 130px;
+    }
+    .p-t-2{
+        padding: 35px 0 15px 0;
+        margin-top: 15px;
+    }
+    /* About Page */
+    /* Project Page */
+
+    .p-t{
+        padding-top: 0;
+    }
+    .pagination-box li a{
+        font-size: 20px;
+    }
+    .pagination{
+        padding-bottom: 35px;
+        margin-top: 0;
+    }
+    .team-list-links .list-links button{
+        margin-left: 20px;
+        font-size: 14px;
+    }
+    .recent-item .img-2{
+        height: 230px;
+    }
+    .detail-image{
+        height: 240px;
+    }
+    .detail-text-area h1{
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .detail-text-area h2{
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .detail-text-area .text{
+        font-size: 12px;
+        line-height: 18px;
+        margin-bottom: 20px;
+    }
+    .detail-content{
+        padding: 20px 0 0 0;
+        overflow-x: hidden;
+    }
+    /* Project DET Page */
+         /* Services Page */
+         .services-boxes{
+            padding: 35px 0 35px 0;
+        }
+        .services-boxes:last-child,
+        .special-row-box:last-child{
+            margin-bottom: 35px;
+        }
+        .special-row-box{
+            width: 100%;
+            padding: 35px 0 10px 0;
+        }
+         
+        .special-row-box:first-child{
+            padding: 0px 0 10px 0;
+        }
+        .service-box-right-img .service-box-img{
+           height: 165px;
+           border-radius: 10px;
+       }
+       .service-box-right-img .service-box-img img{
+           border-radius: 10px;
+       }
+       .service-text-box h1{
+           line-height: 24px;
+           margin-bottom: 10px;
+       }
+       .img-icon{
+           width: 39px;
+           height: 39px;
+           border-radius: 7px;
+           margin-bottom: 10px;
+       }
+       .service-text-box .text{
+           font-size: 14px;
+           line-height: 18px;
+           max-height: 92px;
+           margin-bottom: 10px;
+       }
+       .service-text-box ul{
+           margin-bottom: 15px;
+           padding-left: 5px;
+           gap: 5px;
+           justify-content: center;
+       }
+       .service-text-box ul li{
+           margin: 0 15px;
+       }
+       .service-text-box ul li a{
+           line-height: 16px;
+       }
+       .service-text-box .booking-service{
+           font-size: 12px;
+           border-radius: 4px;
+           padding: 8px;
+       }
+       /* Services Page */
+       /* TEAM PAGE */
+       .team-members{
+           padding-right: 0;
+           margin-bottom: 24px;
+       }
+       .team-members .members-img{
+           height: 156px;
+       }
+       .team-list-links .list-links button{
+           line-height: 17px;
+       }
+       .right-side-img .img-r{
+        margin-bottom: 20px;
+       }
+       .text-area{
+           margin-bottom: 20px;
+       }
+       .team-members-list{
+           padding: 20px 0 15px 0;
+       }
+       /* TEAM PAGE */
+          /* TEAM DET */
+     .person-box h1{
+        font-size: 24px;
+        line-height: 20px;
+        margin-bottom: 10px;
+    }
+    .right-side-img .team-right-img{
+        width: 197px;
+        height: 197px;
+        border-radius: 10px;
+    }
+    .right-side-img .team-right-img img{
+        border-radius: 10px;
+    }
+    .person-info{
+        padding: 20px 0 0 0;
+    }
+    .person-box .person-special ul{
+        margin-bottom: 10px;
+    }
+    .person-box .person-special ul li{
+        margin-right: 35px;
+        line-height: 18px;
+    }
+    .person-box .person-special .person-contact-link {
+        padding: 5px 13px;
+        font-size: 12px;
+        border-radius: 5px;
+    }
+    .person-info-text{
+        margin-top: 30px;
+        padding-right: 0;
+    }
+    .person-info-text h3{
+        font-size: 14px;
+        line-height: 22px;  
+        margin-bottom: 10px;
+    }
+    .person-info-text .text{
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 10px;
+    }
+    .person-info-text a{
+        font-size: 14px;
+    }
+    .personal-projects{
+        margin-top: 20px;
+    }
+    .personal-projects-list li a{
+        font-size: 14px;
+    }
+    .person-box .person-info-box a{
+        font-size: 14px;
+    }
+    .person-box .person-special h2{
+        font-size: 14px;
+    }
+    .personal-projects h1{
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    .personal-projects-list{
+        gap: 10px;
+    }
+    .personal-projects-list li{
+        line-height: 16px;
+    }
+    /* TEAM DET */
+    /* Contact Page */
+
+    .contact-box h1{
+        font-size: 24px;
+        margin-bottom: 15px;
+        line-height: 30px;
+    }
+    .contact-box .contact-links span{
+        line-height: 17px;
+        font-size: 14px;
+    }
+    .right-img-contact {
+        margin-top: 40px;
+        width: 111px;
+        height: 105px;
+    }
+    .contact-box .contact-links{
+        gap: 10px;
+    }
+    .map-side{
+        padding: 0 0 45px 0;
+    }
+    .contact{
+        padding-bottom: 45px;
+    }
+    .contact-form{
+        padding: 0 0 45px 0;
+    }
+    .map-box-components{
+        height: 365px;
+    }
+    .map-bg{
+        height: initial;
+    }
+    .map-bg-2{
+        height: initial;
+    }
+    .map-box {
+        padding: 25px;
+        height: 365px;
+        border-radius: 14px;
+    }
+    .map-box iframe {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .form-box h1{
+        font-size: 24px;
+        line-height: 30px;
+    }
+    form{
+        flex-direction: column;
+        margin-top: 25px;
+    }
+    .form-box form input{
+        width: 100%;
+        background-color: #EFEFEF;
+        border-radius: 8px;
+        border-bottom: none;
+        margin: 15px 0;
+        padding-left: 20px;
+    }
+    .form-box form textarea{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .form-box form input::placeholder{
+        font-size: 0;
+    }
+    .form-box form input:focus-visible,
+    .form-box form textarea:focus-visible{
+        border-bottom: 0;
+    }
+    .form-box form span{
+        font-size: 16px;
+        font-family: 'Lato';
+        font-weight: bold;
+        color: #1A1A1A;
+        display: block;
+        text-align: center;
+    }
+    .form-box form textarea{
+        background-color: #EFEFEF;
+        margin-top: 15px;
+        border-bottom: 0;
+    }
+    .form-box form textarea::placeholder{
+        font-size: 0;
+    }
+    .form-box form button{
+        font-size: 14px;
+        padding: 10px 42px;
+        margin-top: 30px;
+        border-radius: 5px;
+    }
+    /* Contact Page */
+    /* Search Page */
+    .search-section{
+        padding: 35px 0;
+    }
+    /* Search Page */
+}
+
+
+@media (max-width: 850px){
+    .opens .burg-menu{
+        right: -92px;
+        width: 992px;
+        transition: 0s;
+    }
+    .opens .burg-menu .burger-links{
+        width: 480px;
+    }
+    .slick-slide .project-img{
+        height: 190px;
+        width: 94.5%;
+    }
+    .slick-cloned .project-img{
+        height: 190px;
+        width: 94.5%;
+    }
+    .slick-active .project-img{
+        height: 220px;
+        width: 87%;
+    }
+    .slick-center .project-img{
+        height: 255px;
+        width: 95%;
+    }
+    .projects{
+        padding: 35px 0;
+        height: 555px;
+    }
+    .more-link{
+        bottom: 35px;
+    }
+}
+@media (max-width: 768px){
+    html:lang(ka) .recent-item .recent-text h2{
+        font-size: 12px;
+    }
+    html:lang(ka) .main-item .main-text h1{
+        font-size: 16px;
+    }
+    html:lang(ka) .main-item .main-text .text{
+        font-size: 12px;
+    }
+    html:lang(ka) .services-item h2{
+        font-size: 12px;
+    }
+    html:lang(ka) .advert-item{
+        font-size: 14px;
+        min-height: 30px;
+    }
+    html:lang(ka) .project-person h1, html:lang(ka) .project-person h2{
+        font-size: 14px;
+    }
+    html:lang(ka) .form-box h1{
+        font-size: 16px;
+    }
+    html:lang(ka) .text-area .title-text h1,
+    html:lang(ka) .project-text h1,
+    html:lang(ka) .service-text-box h1,
+    html:lang(ka) .team-list-links h1,
+    html:lang(ka) .person-box h1,
+    html:lang(ka) .contact-box h1,
+    html:lang(ka) .services-text h1,
+    html:lang(ka) .recent-project-text h1{
+        font-size: 16px;
+    }
+    .opens .burg-menu{
+        right: -40px;
+        width: 992px;
+        transition: 0s;
+    }
+    .opens .burg-menu .burger-links{
+        width: 450px;
+    }
+}
+
+@media (max-width: 767px){
+    :root{
+        --fontLarge:35px;
+        --nav-fonts:12px;
+        --font1:18px;
+        --font2:18px;
+        --font3:12px;
+        --font4:18px;
+        --font5:12px;
+        --font7:12px;
+    }
+    .search-results .text{
+        max-height: 84px;
+    }
+    .text-section{
+        padding: 20px 0 10px 0;
+    }
+    .m-b-2{
+        margin-bottom: 0!important;
+    }
+    /* Home Page */
+    .head-cont .logo{
+        height: 28px;
+        width: 100%;
+    }
+    .head-cont .logo a{
+        width: 107px;
+    }
+    .burger-lines{
+        padding-top: 7px;
+        height: 37px;
+    }
+    .burger-links form{
+        margin-bottom: 25px;
+    }
+    .burger-links ul{
+        width: 66%;
+    }
+    .burger-links ul li{
+        margin-bottom: 15px;
+    }
+    .burger-links ul li a{
+        font-size: 18px;
+    }
+    .burger-links ul li span{
+        top: 3px;
+    }
+    .burger-links ul li .burger-submenu a{
+        font-size: 16px;
+        margin: 0;
+    }
+    .opens .burg-menu{
+        right: -130px;
+    }
+    .project-person h1{
+        font-size: 14px;
+    }
+
+    #right-arrow{
+        opacity: 0;
+    }
+    #left-arrow{
+        opacity: 0;
+    }
+    .slick-dots{
+        bottom: 0;
+    }
+    .slick-dots li{
+        margin: 0 4px;
+    }
+    .slick-dots li button{
+        height: 4px;
+    }
+    .slick-dots li.slick-active button {
+        width: 24px;
+        background-color: #6A6AE5;
+    }
+    .slick-dots li button{
+        width: 8px;
+    }
+    .main-banner{
+        height: 250px;
+    }
+    .main-item{
+        height: 250px!important;
+    }
+    .main-item .main-text{
+        max-width: 324px;
+        margin-top: 20px;
+    }
+    .main-item .main-text h1{
+        text-align: center;
+        line-height: 22px;
+        margin-bottom: 10px;
+        max-height: 45px;
+    }
+    .main-item .main-text .text{
+        width: 92%;
+        max-height: 54px;
+    }
+    .about-section{
+        padding: 20px 0;
+    }
+    .about-content .about-text .text{
+        line-height: 18px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        font-size: 12px;
+    }
+    
+    .about-content{
+        padding: 0;
+    }
+    .card{
+        height: 143px;
+        margin-bottom: 12px;
+    }
+    .card-padding{
+        padding: 0 6px;
+    }
+    .pad-l{
+        padding: 0 9px;
+    }
+    .card span:first-child{
+        margin-bottom: 10px;
+    }
+    .about-content .more-link{
+        margin-top: 8px;
+    }
+    .projects{
+        padding: 20px 0;
+        height: 398px;
+    }
+    .members-link{
+        bottom: 20px;
+    }
+    .project-text .text{
+        line-height: 15px;
+        max-height: 31px;
+    }
+    .project-text{
+        margin-bottom: 20px;
+    }
+    .slick-slide .project-img{
+        height: 158px;
+        width: 94.5%;
+    }
+    .slick-cloned .project-img{
+        height: 158px;
+        width: 94.5%;
+    }
+    .slick-center .project-img{
+        height: 171px;
+        width: 95%;
+    }
+    .project-person{
+        margin-top: 12px;
+    }
+    .members-link{
+        margin-top: 15px;
+    }
+    .services {
+        padding: 20px 0 10px 0;
+    }
+    .services-text{
+        margin-bottom: 20px;
+    }
+    .services-text h1{
+        line-height: 22px;
+        margin-bottom: 8px;
+    }
+    .services-text h3{
+        line-height: 18px;
+        max-height: 38px;
+    }
+    .mg-center-2{
+        margin: 0 auto;
+    }
+    .add-color{
+        padding:  0 2px;
+    }
+    .services-item{
+        margin-bottom: 10px;
+        height: 210px;
+        padding:  0 25px;
+        border-radius: 10px;
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .services-item .white-box{
+        width: 57px;
+        height: 57px;
+    }
+    .services-item h2{
+        font-size: 16px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    .recent-projects{
+        padding: 20px 0 40px 0;
+        position: relative;
+    }
+    .recent-project-text{
+        margin-bottom: 20px;
+    }
+    .recent-project-text h1{
+        margin-bottom: 8px;
+        line-height: 22px;
+    }
+    .recent-project-text h3{
+        line-height: 18px;
+        max-height: 38px;
+    }
+    .right-side-links{
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .recent-item .recent-project-img{
+        height: 167px;
+    }
+    .pad-l-r{
+        padding:  0 5px;
+    }
+    .recent-item .recent-text .recent-text-center{
+        height: 36px;
+    }
+    .recent-item .recent-text h2{
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .recent-item .recent-text .text{
+        font-size: 12px;
+        line-height: 15px;
+        max-height: 46px;
+    }
+    .advert-item{
+        font-size: 14px;
+        line-height: 20px;
+        max-width: 65%;
+        max-height: 42px;
+        padding-right: 20px;
+        max-height: 40px;
+    }
+    .contact-us-11{
+        padding: 20px 0;
+    }
+    .advert-contact{
+        margin-top: 9px;
+    }
+    .footer{
+        padding: 20px 0;
+    }
+    .fot-row{
+        width: 100%;
+    }
+    .footer-social{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .fot-col{
+        display: none;
+    }
+    .fot-col:first-child{
+        display: block;
+        margin: 0 auto
+    }
+    .socials{
+        padding-left: 0;
+    }
+    .social-icon:first-child{
+        margin-left: 0;
+    }
+    /* Home Page */   
+    /* About Page */
+
+    .bandcamp ul li a{
+        font-size: 12px;
+    }
+    .d-arrow-b{
+        font-size: 14px;
+    }
+    .bandcamp ul li{
+        line-height: 18px;
+    }
+    .hidden-img{
+        display: none;
+    }
+    .text-area{
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .text-area .text{
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+    }
+    .text-area .title-text h1{
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .p-t-2{
+        padding: 20px 0 8px 0;
+        margin-top: 10px;
+    }
+    /* About Page */
+    /* Project page */
+
+    .p-t{
+        padding: 20px 0 5px 0;
+    }
+    .team-list-links h1{
+        margin-bottom: 20px;
+        line-height: 20px;
+        font-size: 16px;
+    }
+    .team-list-links{
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+    .team-list-links .list-links{
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .team-list-links .list-links button{
+        line-height: 17px;
+        font-size: 14px;
+        margin: 0;
+    }
+    .pagination {
+        margin-top: 0px;
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    .pagination-box{
+        gap: 10px;
+    }
+    .pagination-box li a{
+        font-size: 16px;
+    }
+    /* Project Page/ */
+     /* Project  DET Page */
+
+    .detail-image{
+        height: 213px;
+        width: 214px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+    .detail-image a img{
+        border-radius: 10px!important;
+    }
+    .detail-content{
+        padding: 20px 0 0 0;
+        overflow-x: hidden;
+    }
+    .row-slider-mobile{
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        /* padding-bottom: 20px; */
+    }
+    .col-slider{
+        width: fit-content;
+        padding: 0 6px;
+    }
+    /* Project DET Page */
+    /* Services Page */
+    .services-boxes{
+        padding: 20px 0 20px 0;
+    }
+    .services-boxes:last-child,
+    .special-row-box:last-child{
+        margin-bottom: 20px;
+    }
+    .special-row-box{
+        padding: 20px 0 10px 0;
+    }
+    .special-row-box:first-child{
+        padding: 0px 0 10px 0;
+    }
+    .service-text-box{
+        align-items: center;
+    }
+   .service-text-box h1{
+       line-height: 22px;
+       margin-bottom: 15px;
+   }
+   .img-icon{
+       width: 42px;
+       height: 42px;
+       margin-bottom: 15px;
+   }
+   .service-text-box .text{
+       font-size: 12px;
+       line-height: 18px;
+       max-height: 106px;
+       margin-bottom: 15px;
+       padding-right: 0;
+       text-align: center;
+   }
+   .service-text-box ul{
+       margin-bottom: 15px;
+       padding-left: 5px;
+   }
+   .service-text-box ul li{
+       margin: 0 15px;
+       line-height: 10px;
+   }
+   .service-text-box ul li a{
+       line-height: 16px;
+   }
+   .service-text-box .booking-service{
+       font-size: 12px;
+       border-radius: 4px;
+       padding: 8px 17px;
+   }
+   .hide-service-img{
+       display: none;
+   }
+   /* Services Page */
+    /* TEAM PAGE */
+    .team-members{
+        padding-right: 0;
+        margin-bottom: 24px;
+    }
+    .team-members .members-img{
+        height: 147px;
+    }
+    .text-area{
+        margin-bottom: 10px;
+    }
+    .team-members-list{
+        padding: 20px 0 0 0;
+    }
+    .team-members .members-info h1{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .team-members .members-info h2{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .team-members .members-info span{
+        height: 15px;
+    }
+    /* TEAM PAGE */
+        /* TEAM DET */
+        .person-box h1{
+            font-size: 22px;
+            line-height: 20px;
+            margin-bottom: 10px;
+        }
+        .right-side-img .team-right-img{
+            width: 121px;
+            height: 121px;
+            border-radius: 10px;
+        }
+        .right-side-img .team-right-img img{
+            border-radius: 10px;
+        }
+        .person-info{
+            padding: 20px 0 0 0;
+        }
+        .person-info-box{
+            width: 110%;
+            overflow: hidden;
+        }
+        .person-box .person-info-box a{
+            font-size: 12px;
+            line-height: 20px;
+        }
+        .person-box .person-special{
+            width: 177%;
+            overflow: hidden;
+        }
+        .person-box .person-special ul{
+            margin-bottom: 10px;
+            width: 160%;
+            padding-left: 10px;
+        }
+        .person-box .person-special ul li{
+            margin-right: 20px;
+            line-height: 18px;
+            font-size: 12px;
+            list-style: none;
+            position: relative;
+            margin-bottom: 5px;
+        }
+        .person-box .person-special ul li:before{
+            content: " ";
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            height: 5px;
+            width: 5px;
+            background: #1A1A1A;
+        }
+        .person-box .person-special ul li a{
+          font-size: 12px;
+        }
+        .person-box .person-special .person-contact-link {
+            padding: 5px 13px;
+            font-size: 12px;
+            border-radius: 5px;
+        }
+        .person-info-text{
+            margin-top: 20px;
+            padding-right: 0;
+        }
+        .person-box .person-special h2{
+            margin-top: 5px;
+            padding: 0;
+        }
+        .person-info-text h3{
+            font-size: 14px;
+            line-height: 20px;  
+            margin-bottom: 10px;
+            padding: 0;
+        }
+        .person-info-text .text{
+            font-size: 12px;
+            line-height: 18px;
+            margin-bottom: 10px;
+        }
+        .person-info-text a{
+            font-size: 14px;
+        }
+        .personal-projects{
+            margin-top: 20px;
+        }
+        .personal-projects-list li a{
+            font-size: 14px;
+        }
+        .person-box .person-info-box a{
+            font-size: 14px;
+        }
+        .person-box .person-special h2{
+            font-size: 14px;
+        }
+        .personal-projects h1{
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .personal-projects-list{
+            gap: 10px;
+        }
+        .personal-projects-list li{
+            line-height: 16px;
+        }
+        /* TEAM DET */
+        /* Contact Page */
+        .contact-box h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            line-height: 27px;
+        }
+        .contact-box{
+            margin-top: 20px;
+        }
+        .hid-link{
+            display: initial;
+        }
+        .hidden-link-mob{
+            display: none;
+        }
+        .contact{
+            padding: 0 0 25px 0;
+        }
+        .map-side{
+            padding: 0 0 25px 0;
+        }
+        .contact-form {
+            padding: 0 0 30px 0
+        }
+        .map-box-components{
+            height: 158px;
+        }
+        .map-box{
+            width: 91%;
+            padding: 0;
+            height: 158px;
+        }
+        .form-box form input{
+            height: 38px;
+        }
+        .form-box form textarea{
+            height: 132px;
+            border-radius: 8px;
+        }
+        .btn-contact{
+            justify-content: center;
+        }
+        .form-box form button{
+            font-size: 12px;
+            margin-top: 25px;
+            border: none;
+            background-color: #F89C1C;
+            color: #fff;
+            transition: 0.4s;
+            padding: 6px 32px;
+        }
+        .form-box form button:hover{
+            background-color: #142C51;
+        }
+        .mob-row-contact{
+            width: initial!important;
+        }
+        /* Contact Page */
+}
+
+
+@media (max-width:670px){
+    .opens .burg-menu{
+        right: -90px;
+    }
+}
+@media (max-width:575px){
+    .opens .burg-menu{
+        right: -195px;
+    }
+    .opens .burg-menu .burger-links{
+        width: 450px;
+    }
+    .burger-links{
+        align-items: flex-start;
+    }
+    .services-item{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .contact-box .contact-links{
+        flex-direction: column;
+    }
+    .contact-box .contact-links span{
+        width: 100%;
+    }
+}
+
+
+ @media (max-width:420px){
+    .search-results .text{
+        max-height: 80px;
+    }
+    .burg-menu{
+        top: -22px;
+    }
+    .burger-lines{
+        height: auto;
+        width: 18px;
+    }
+    .burg-line {
+        height: 2px;
+    }
+    .burg-line:nth-child(2) {
+        margin: 2px 0;
+    }
+    .opens .burger-lines .burg-line:first-child {
+        transform: rotate(45deg) translate(2px, 1px);
+        background-color: #1A1A1A;
+    }
+    .opens .burger-lines .burg-line:last-child {
+        transform: rotate(-45deg) translate(5px, -3px);
+        background-color: #1A1A1A;
+    }
+    .header-bg .burger-lines{
+        height: auto;
+        width: 18px;
+    }
+    .header-bg .burg-line {
+        height: 2px;
+    }
+    .header-bg .burg-line:nth-child(2) {
+        margin: 2px 0;
+    }
+    .header-bg .opens .burger-lines .burg-line:first-child {
+        transform: rotate(45deg) translate(2px, 1px);
+        background-color: #1A1A1A;
+    }
+    .header-bg .opens .burger-lines .burg-line:last-child {
+        transform: rotate(-45deg) translate(5px, -3px);
+        background-color: #1A1A1A;
+    }
+    .head-cont .logo a{
+        width: 105px;
+    }
+} 
