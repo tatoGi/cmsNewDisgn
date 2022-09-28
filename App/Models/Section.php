@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Support\Facades\Config;
+use Laravel\Scout\Searchable;
 use App\Models\Slug;
 
 use App\Models\Post;
 
 class Section extends Model
 {
-    use HasFactory;
-    use Translatable;
+    use HasFactory, Translatable ,Searchable;
 
     protected $casts = [
         'additional' => 'collection'
@@ -46,6 +46,8 @@ class Section extends Model
         'active'
     ];
 
+
+   
     /**
      * tgis function gets Type of the section 
      * you can use it with just "->type"

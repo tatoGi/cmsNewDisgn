@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Section;
 use App\Models\MenuSection;
+use App\Models\Submission;
 use App\Models\Post;
 use App\Models\PostFile;
 use Illuminate\Support\Facades\Validator;
@@ -19,38 +20,37 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PostController extends Controller
 {
-    public function index($sec){
+    public function index($sec , Request $request){
         $section = Section::where('id', $sec)->with('translations')->first();
-
+       
         if (isset($section->type) && $section->type['type'] === 3) {
             $post = Post::where('section_id', $sec)->with(['translations', 'slugs'])->first();
             if (isset($post) && $post !== null) {
                 return Redirect::route('post.edit', [app()->getLocale(), $post->id,]);
             }
             return Redirect::route('post.create', [app()->getLocale(), $sec,]);
-
         }
         $posts = Post::where('section_id', $sec)->orderBy('date', 'desc')->orderBy('created_at', 'asc')
 		->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
 		->where('post_translations.locale', '=', app()->getLocale())
 		->select('posts.*', 'post_translations.text', 'post_translations.desc', 'post_translations.title', 'post_translations.locale_additional', 'post_translations.slug');
-
-
 		$posts = $posts->with(['translations', 'slugs'])->paginate(settings('Paginate'));
-        return view('admin.posts.list', compact(['section', 'posts']));
-    }
+        $notifications = Submission::where('seen', 0)->with('post.parent')->orderBy('created_at', 'desc')->get();
+        if($request->filled('search')){
+            $posts = Post::search($request->search)->get();
+        }else{
+            $posts = Post::get();
+        }
+     
 
+        return view('admin.posts.list', compact(['section', 'posts' , 'notifications']));
+    }
     public function create($sec){
         $section = Section::where('id', $sec)->with('translations')->first();
-
-        return view('admin.posts.add', compact(['section']));
+        $notifications = Submission::where('seen', 0)->with('post.parent')->orderBy('created_at', 'desc')->get();
+        return view('admin.posts.add', compact(['section','notifications']));
     }
-
-
-
     public function store($sec, Request $request){
-
-
         $section = Section::where('id', $sec)->with('translations')->first();
         $values = $request->all();
         // dd($values);
@@ -75,14 +75,21 @@ class PostController extends Controller
             $values['cover'] = $values['old_cover'];
         }
         $values['additional'] = getAdditional($values, array_diff(array_keys($section->fields['nonTrans']), $postFillable) );
-		
         foreach(config('app.locales') as $locale){
-            if($values[$locale]['slug'] != ''){
+            if(isset($values[$locale]['slug']) != ''){
                 $values[$locale]['slug'] = SlugService::createSlug(PostTranslation::class, 'slug', $values[$locale]['slug']);
-            }else{
+            }elseif(isset($values[$locale]['title'])){
                 $values[$locale]['slug'] = SlugService::createSlug(PostTranslation::class, 'slug', $values[$locale]['title']);
             }
-
+            if(isset($values[$locale]['file']) && $values[$locale]['file'] != ''){
+                $newfileName = uniqid() . "." . $values[$locale]['file']->getClientOriginalExtension();
+                $orignalName = $values[$locale]['file']->getClientoriginalname();
+                $values[$locale]['file']->move(config('config.file_path'), $newfileName );
+                $values[$locale]['file'] = '';
+                $values[$locale]['file'] = $newfileName;
+                $values[$locale]['filename'] = $orignalName;
+               
+            }
             $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->fields['trans']), $postTransFillable) );   
         }
         $post = Post::create($values);
@@ -109,19 +116,13 @@ class PostController extends Controller
         
         return Redirect::route('post.list', [app()->getLocale(), $section->id,]);
     }
-
-
-
-
     public function edit($id){
 
         $post = Post::where('id', $id)->with(['translations', 'files'])->first();
         $section = Section::where('id', $post->section_id)->with('translations')->first();
-        return view('admin.posts.edit', compact('section', 'post'));
+        $notifications = Submission::where('seen', 0)->with('post.parent')->orderBy('created_at', 'desc')->get();
+        return view('admin.posts.edit', compact('section', 'post','notifications'));
     }
-
-
-
     public function update($id, Request $request){
         $post = Post::where('id', $id)->with('translations')->first();
       
@@ -153,22 +154,22 @@ class PostController extends Controller
         }
         $values['additional'] = getAdditional($values, array_diff(array_keys($section->fields['nonTrans']), $postFillable) );
 
-
         foreach(config('app.locales') as $locale){
-
-            if($values[$locale]['slug'] != $post[$locale]->slug){
-
-                $values[$locale]['slug'] = SlugService::createSlug(PostTranslation::class, 'slug', $values[$locale]['slug']);
-
-            }
            
-				$post->slugs()->create([
-					'fullSlug' => $locale.'/'.$post->translate($locale)->slug,
-					'locale' => $locale
-				]);
-               
-			
-            // dd($values);
+            if(isset($values[$locale]['slug'])){ 
+                $values[$locale]['slug'] = str_replace(' ', '', $values[$locale]['slug']);
+                }elseif(isset($values[$locale]['title'])){ 
+                $values[$locale]['slug'] = str_replace(' ', '', $values[$locale]['title']);
+                }
+
+                    if(isset($post->slug) && isset($values[$locale]['slug'])){
+                        $post->slugs()->create([
+                            'fullSlug' => $locale.'/'.$values[$locale]['slug'],
+                            'slugable_id' => $id,
+                            'locale' => $locale
+                             ]);
+                    
+                    }
             if(isset($values[$locale]['file']) && ($values[$locale]['file'] != '')){
                
                 $newfileName = uniqid() . "." . $values[$locale]['file']->getClientOriginalExtension();
@@ -179,8 +180,8 @@ class PostController extends Controller
                 $values[$locale]['file'] = $values[$locale]['old_file'];
             }
             $values[$locale]['locale_additional'] = getAdditional($values[$locale], array_diff(array_keys($section->fields['trans']), $postTransFillable) );
-        }
 
+        }
         $allOldFiles = PostFile::where('post_id', $post->id)->get();
        
         foreach ($allOldFiles as $key => $fil) {
@@ -213,15 +214,9 @@ class PostController extends Controller
     public function destroy($id){
 
         $post = Post::where('id', $id)->first();
-        // foreach (Post::find($id)->slugs()->get() as $slug) {
-
-        //     // Post::find($id)->delete();
-        // }
         $section = Section::where('id', $post->section_id)->with('translations')->first();
-
         $files = PostFile::where('post_id', $post->id)->get();
         foreach($files as $file){
-           
             if(file_exists(config('config.image_path').$file->file)){
                 unlink(config('config.image_path').$file->file);
                 }else{
@@ -234,21 +229,13 @@ class PostController extends Controller
                     }
             $file->delete();
         }
-
         PostTranslation::where('post_id', $post->id)->delete();
-
         Post::find($id)->slugs()->delete();
         $post->delete();
 
 
         return Redirect::route('post.list', [app()->getLocale(), $section->id,]);
     }
-
-
-
-
-
-
     public function DeleteFile($que) {
         $post = Post::where('id', $que)->first();
         if($post->cover != ''){

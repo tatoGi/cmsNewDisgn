@@ -1,5 +1,5 @@
 
-@if($model->type_id !== 4)
+
         <section>
 
             <div class=" footer-adv2 footer-adv ">
@@ -76,4 +76,4 @@
             </div>
 
         </section>
-        @endif
+       

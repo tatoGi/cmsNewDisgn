@@ -28,6 +28,7 @@ class UploadController extends LfmController
         $uploaded_files = request()->file('upload');
         $error_bag = [];
         $new_filename = null;
+       
 
         foreach (is_array($uploaded_files) ? $uploaded_files : [$uploaded_files] as $file) {
             try {

@@ -4,6 +4,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Emailers;
 use App\Models\Post;
 use App\Models\Subscription;
+use  App\Mail\Mailers;
+use App\Models\Submission;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\File;
 
@@ -14,11 +16,16 @@ class EmailerController extends Controller
 {
     public function index(){
         $emails= Emailers::all();
-        return view('admin.mail.index', compact('emails'));
+        $notifications = Submission::where('seen', 0)->with('post.parent')->orderBy('created_at', 'desc')->get();
+        return view('admin.mail.index', compact('emails','notifications'));
     }
     public function add(){
-        return view('admin.mail.add');
+
+        $notifications = Submission::where('seen', 0)->with('post.parent')->orderBy('created_at', 'desc')->get();
+
+         return view('admin.mail.add', compact('notifications'));
     }
+
     public function store(Request $request){
 		$values = $request->all();
         // dd($request->thumb);
@@ -28,7 +35,7 @@ class EmailerController extends Controller
             $values['thumb'] = config('config.file_path').$newName;
         }
         Emailers::create($values);
-        return Redirect::action([EmailerController::class, 'emailSend'], [app()->getLocale()]);
+        return self::emailSend([app()->getLocale()]);
     }
     public function edit($id){
         $post = Emailers::find($id);
@@ -76,7 +83,7 @@ class EmailerController extends Controller
         $details = [
             'title' => 'Mails from agro',
         ];
-        \Mailers::to($subscribers)->send(new \App\Mail\Mailers($details));
+        Mailers::to($subscribers)->send(new Mailers($details));
         return view('admin.mail.index', compact('emails'));
     }
 }

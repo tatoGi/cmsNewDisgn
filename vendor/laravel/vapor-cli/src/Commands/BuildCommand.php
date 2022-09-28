@@ -19,6 +19,7 @@ use Laravel\VaporCli\BuildProcess\InjectHandlers;
 use Laravel\VaporCli\BuildProcess\InjectRdsCertificate;
 use Laravel\VaporCli\BuildProcess\ProcessAssets;
 use Laravel\VaporCli\BuildProcess\RemoveIgnoredFiles;
+use Laravel\VaporCli\BuildProcess\RemovePintBinary;
 use Laravel\VaporCli\BuildProcess\RemoveVendorPlatformCheck;
 use Laravel\VaporCli\BuildProcess\SetBuildEnvironment;
 use Laravel\VaporCli\BuildProcess\ValidateApiToken;
@@ -41,7 +42,7 @@ class BuildCommand extends Command
     {
         $this
             ->setName('build')
-            ->addArgument('environment', InputArgument::OPTIONAL, 'The environment name', 'staging')
+            ->addArgument('environment', InputArgument::OPTIONAL, 'The environment name')
             ->addOption('asset-url', null, InputOption::VALUE_OPTIONAL, 'The asset base URL')
             ->addOption('build-arg', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Docker build argument')
             ->setDescription('Build the project archive');
@@ -76,6 +77,7 @@ class BuildCommand extends Command
             new ConfigureArtisan($this->argument('environment')),
             new ConfigureComposerAutoloader($this->argument('environment')),
             new RemoveIgnoredFiles(),
+            new RemovePintBinary(),
             new RemoveVendorPlatformCheck(),
             new ProcessAssets($this->option('asset-url')),
             new ExtractAssetsToSeparateDirectory(),

@@ -10,10 +10,10 @@ class DashboardComposer
 
 {
     public $locales = [];
-
+    
     public function __construct()
     {
-        $this->notifications = Submission::where('seen', 0)->with('post.parent')->orderBy('created_at', 'desc')->get();
+     
 
         foreach (Config::get('app.locales') as $locale) {
             $currentLocale = "/".app()->getLocale()."/";
@@ -27,7 +27,7 @@ class DashboardComposer
     {
 
         $view->with([
-            'notifications' => $this->notifications,
+            
             "locales" => $this->locales
         ]);
     }

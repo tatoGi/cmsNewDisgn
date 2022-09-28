@@ -9,7 +9,7 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-        <div class="card-box">
+        <div class="card-box" style="margin: 30px">
             <div style="display: flex; align-items:center; justify-content: space-between; padding:20px 0">
                 <h4 class="mt-0 header-title float-left">{{ trans('admin.users') }}</h4>
 
@@ -17,7 +17,20 @@
 
             </div>
 
-            <table id="datatable" class="table table-bordered dt-responsive nowrap">
+            <form method="GET">
+                <div class="input-group mb-3">
+                  <input 
+                    type="text" 
+                    name="search" 
+                    value="{{ request()->get('search') }}" 
+                    class="form-control" 
+                    placeholder="Search..." 
+                    aria-label="Search" 
+                    aria-describedby="button-addon2">
+                  <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
+                </div>
+            </form>
+            <table class="table table-bordered dt-responsive nowrap">
                 <thead>
                     @if(session()->has('message'))
                         <div class="alert alert-success">

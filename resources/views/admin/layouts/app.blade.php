@@ -1,47 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
 @include('admin.layouts.head')
-
+</head>
 <body>
-
-    <!-- Begin page -->
-    <div class="wrapper">
-        @include('admin.layouts.sidebar')
-        <div class="main-panel ps ps--active-y" id="main-panel">
+    <div id="app">
+       @include('admin.layouts.sidebar')
+       
+        <div id="main" class='layout-navbar'>
             @include('admin.layouts.header')
-
-
-
-            <!-- ============================================================== -->
-            <!-- Start Page Content here -->
-            <!-- ============================================================== -->
-
-
-            <div class="content">
-                
-                    @yield('content')
-              
-
-
-            </div> <!-- content -->
-
+            
+            @yield('content')
 
         </div>
-
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
-
-
     </div>
-    <!-- END wrapper -->
-
-
-    <!-- Right bar overlay-->
-    <div class="rightbar-overlay"></div>
 
     @include('admin.layouts.scripts')
 </body>
-
 </html>

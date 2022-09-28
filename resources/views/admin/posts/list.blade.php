@@ -15,13 +15,21 @@
 <div class="row">
     <div class="col-12">
         <div class="card-box">
+            <form method="GET">
+                <div class="input-group mb-3">
+                    <input type="text" name="search" value="{{ request()->get('search') }}" class="form-control"
+                        placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
+                    <button class="btn btn-success" type="submit"
+                        id="button-addon2">{{ trans('website.search') }}</button>
+                </div>
+            </form>
             <div style="display: flex; align-items:center; justify-content: space-between; padding:20px 0">
                 <h4 class="mt-0 header-title float-left">{{ $section [app()->getLocale()]->title }}</h4>
 
-               
+
                 <a href="/{{ app()->getLocale() }}/admin/section/{{ $section->id }}/posts/create" type="button"
                     class="float-right btn btn-info waves-effect width-md waves-light">{{ trans('admin.add_post') }}</a>
-              
+
             </div>
 
             <div class="container-fluid">
@@ -42,11 +50,11 @@
                                         href="/{{ app()->getLocale() }}/admin/submissions?post_id={{ $section->post()->id }}"
                                         class="dropdown-item">{{ trans('admin.submissions') }}</a>
                                     @endif
-                                   
+
                                     <a style="color: #35b8e0"
                                         href="{{ route('post.edit', [app()->getLocale(), $post->id]) }}"
                                         class="dropdown-item">{{ trans('admin.edit') }}</a>
-                                   
+
                                     <a style="color: #ff3535"
                                         href="{{ route('post.destroy', [app()->getLocale(), $post->id]) }}"
                                         data-confirm="დარწმუნებული ხართ რომ გსურთ პოსტის წაშლა?"
@@ -56,7 +64,7 @@
                                 </div>
                             </div>
 
-                            <h4 class="header-title mt-0 ">{{ $post->title }} <br> </h4>
+                            <h4 class="header-title mt-0 ">{{ $post->translate(app()->getLocale())->title }} <br> </h4>
 
                             @if ($post->thumb == null && isset(json_decode($post->locale_additional)->youtube_Link))
                             <img class="img-fluid card-image"
@@ -75,7 +83,7 @@
                     </div><!-- end col -->
                     @endforeach
                     <div class="col-lg-12">
-                        {{ $posts->links() }}
+
                     </div>
                 </div>
                 <!-- end row -->

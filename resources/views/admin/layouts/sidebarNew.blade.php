@@ -1,193 +1,32 @@
-<!-- ========== Left Sidebar Start ========== -->
-<div class="left-side-menu">
-@if(auth()->user() !== Null)
-    <div class="slimscroll-menu">
 
-        <!-- User box -->
-       
-        <div class="user-box text-center">
-            <div class="dropdown">
-                <a href="#" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown">
-                    {{ auth()->user()->name }}</a>
-                <div class="dropdown-menu user-pro-dropdown">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="{{ asset('/admin/libs/jquery-knob/jquery.knob.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.11/adapters/jquery.js"></script>
 
-                    <!-- item-->
-                    <a href="/{{ app()->getLocale() }}/admin/profile" class="dropdown-item notify-item">
-                        <i class="fe-user mr-1"></i>
-                        <span>{{ trans('admin.my_account') }}</span>
-                    </a>
+<script src="{{ asset('/admin/js/app.min.js')}}"></script>
+<script src="{{ asset('/admin/js/script.js')}}"></script>
+<script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/main.js') }}"></script>
+<script src="{{ asset('admin/js/fileupload.js') }}"></script>
+<script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-filter/dist/filepond-plugin-image-filter.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script src="{{ asset('assets/vendors/toastify/toastify.js') }}"></script>
+<script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
+<script src="{{ asset('admin/js/script.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>    
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.11/ckeditor.js"></script>
+<script src="{{ asset('/admin/js/vendor.min.js')}}"></script>
+<script src="{{ asset('/admin/libs/morris-js/morris.min.js')}}"></script>
+<script src="{{ asset('/admin/libs/raphael/raphael.min.js')}}"></script>
 
-                    
-                    
-
-                    <!-- item-->
-                    <a href="{{ route('logout', app()->getLocale()) }}" class="dropdown-item notify-item">
-                        <i class="fe-log-out mr-1"></i>
-                        <span>{{ trans('admin.logout') }}</span>
-                    </a>
-
-                </div>
-            </div>
-            <p class="text-muted">{{ trans('admin.'.auth()->user()->type ) }}</p>
-            <ul class="list-inline">
-            
-
-                <li class="list-inline-item">
-                    <a href="{{ route('logout', app()->getLocale()) }}" class="text-custom">
-                        <i class="mdi mdi-power"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <!--- Sidemenu -->
-        <div id="sidebar-menu">
-
-            <ul class="metismenu" id="side-menu">
-                {{-- <li class="menu-title">{{ trans('admin.dashboard') }}</li>
-				<li>
-                    <a href="/{{ app()->getLocale() }}/admin">
-                        <i class="mdi mdi-view-dashboard"></i>
-                        <span> {{ trans('admin.dashboard') }} </span>
-                    </a>
-                    
-                </li> --}}
-                <li class="menu-title">{{ trans('admin.website') }}</li>
-                <li>
-                    <a  href="/{{ app()->getLocale() }}/admin/submissions">
-                        <i class="mdi  noti-icon {{ count($notifications) > 0 ? 'mdi-email pos-rel' : 'mdi-email-open'  }}">
-                            @if (count($notifications) > 0 )
-                            <span class="badge badge-danger rounded-circle noti-icon-badge sidebar-badge">{{ count($notifications) }}</span>
-                     
-                            @endif
-                        </i>
-                        <span > {{ trans('admin.submissions') }} </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/{{ app()->getLocale() }}/admin/sections">
-                        <i class="mdi mdi-view-list"></i>
-                        <span> {{ trans('admin.sections') }} </span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="/{{ app()->getLocale() }}/admin/sections?type=13">
-                        <i class="mdi mdi-view-list"></i>
-                        <span> {{ trans('admin.categories') }} </span>
-                    </a>
-                </li>
-                
-                <li>
-                    
-                    @foreach (bannerTypesOrdered() as $key => $bannerType)
-                    <a href="{{ route('banner.list', [app()->getLocale(), $bannerType['id']]) }}">
-                        
-                        <i class="mdi mdi-view-dashboard"></i>
-                        {{ trans('bannerTypes.'.$bannerType['name']) }}</a>
-                    @endforeach
-                </li>
-                       
-{{-- 
-                <li>
-                    <a href="javascript: void(0);">
-                        <i class="mdi mdi-view-dashboard"></i>
-                        <span> {{ trans('admin.banners') }} </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        @foreach (bannerTypesOrdered() as $key => $bannerType)
-                        <li><a href="{{ route('banner.list', [app()->getLocale(), $bannerType['id']]) }}">{{ trans('bannerTypes.'.$bannerType['name']) }}</a></li>
-                        @endforeach
-                        
-                    </ul>
-                </li>
-				 --}}
-
-                @if (auth()->user()->isType('admin'))
-					@if (!empty(directoryTypes()))
-						<li>
-							<a href="javascript: void(0);">
-								<i class="mdi mdi-wrap-disabled"></i>
-								<span> {{ trans('admin.directories') }} </span>
-								<span class="menu-arrow"></span>
-							</a>
-
-							<ul class="nav-second-level" aria-expanded="false">
-								@foreach (directoryTypes() as $key => $directoryType)
-								<li><a href="{{ route('directory.list', [app()->getLocale(), $key]) }}">{{ trans('directoryTypes.'.$directoryType) }}</a></li>
-								@endforeach
-								
-							</ul>
-						</li>
-					@endif
-                <li>
-                    <a href="/{{ app()->getLocale() }}/admin/languages/edit">
-                        <i class="fas fa-language"></i>
-                        <span> {{ trans('admin.languages') }} </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/{{ app()->getLocale() }}/admin/settings/edit">
-                        <i class="mdi mdi-settings"></i>
-                        <span> {{ trans('admin.settings') }} </span>
-                    </a>
-                </li>
-                
-                @endif
-
-                @if (auth()->user()->isType('superuser'))
-                <li class="menu-title">{{ trans('admin.cms') }}</li>
-
-                <li>
-                    <a href="/{{ app()->getLocale() }}/admin/users">
-                        <i class="mdi mdi-account-multiple-outline"></i>
-                        <span> {{ trans('admin.users') }} </span>
-                    </a>
-                </li>
-                    
-                {{-- <li>
-                    <a href="/{{ app()->getLocale() }}/admin/subscribers">
-                        <i class="mdi mdi-account-multiple-outline"></i>
-                        <span> {{ trans('admin.subscribers') }} </span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/{{ app()->getLocale() }}/admin/mailers">
-                        <i class="mdi mdi-account-multiple-outline"></i>
-                        <span> {{ trans('admin.mailers') }} </span>
-                    </a>
-                </li> --}}
-{{-- 
-                <li>
-                    <a href="/{{ app()->getLocale() }}/attandance">
-                        <i class="dripicons-user"></i>
-                        <span> {{ trans('admin.attandance') }} </span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/{{ app()->getLocale() }}/employes">
-                        <i class="mdi mdi-account-multiple-outline"></i>
-                        <span> {{ trans('admin.employes') }} </span>
-                    </a>
-                </li> --}}
-
-                @endif
-                
-
-                
-    
-            </ul>
-
-        </div>
-        <!-- End Sidebar -->
-
-        <div class="clearfix"></div>
-
-    </div>
-    @endif
-    <!-- Sidebar -left -->
-
-</div>
-<!-- Left Sidebar End -->

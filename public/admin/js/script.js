@@ -32,7 +32,7 @@ $("body").on("click", ".deletefile", function() {
     }
 });
 
-$("body").on("click", ".DeleteImages", function () {
+$("body").on("click", ".DeleteCover", function () {
     var elem = $(this).closest('.dfie');
     var que = $(this).data("id");
     var TOKEN = $(this).data("token");
@@ -60,4 +60,29 @@ $("body").on("click", ".DeleteImages", function () {
 });
 
 
+$("body").on("click", ".DeleteImages", function () {
+    var elem = $(this).closest('.dfie');
+    var que = $(this).data("id");
+    var TOKEN = $(this).data("token");
 
+    if (confirm("დოკუმენტის წაშლა!?")) {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: $(this).data('route'),
+            type: 'DELETE',
+            data: {
+                _token: TOKEN,
+                que: que
+            },
+            dataType: 'JSON',
+            success: function (response) {
+                if (response.success) {
+                    elem.remove()
+                }
+            },
+        });
+        $(this).parents('tr').hide('slow');
+    }
+});

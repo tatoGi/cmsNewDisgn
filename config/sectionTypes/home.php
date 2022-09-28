@@ -1,7 +1,7 @@
 <?php
 return [
-    'id' => 1,
-    'type' => 1,
+    'id' => 0,
+    'type' => 0,
 
     'fields' => [
         'title' => [

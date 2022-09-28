@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Laravel\Scout\Searchable;
 
 class PostTranslation extends Model
 {
-    use HasFactory;
-    use Sluggable;
+    use HasFactory,Sluggable,Searchable;
     
     protected $casts = [
         'locale_additional' => 'collection',
@@ -56,6 +56,13 @@ class PostTranslation extends Model
             'slug' => [
                 'source' => 'title',
             ]
+        ];
+    }
+    public function toSearchableArray()
+    {
+        return [
+            'title' => $this->title,
+            'desc' => $this->desc
         ];
     }
 

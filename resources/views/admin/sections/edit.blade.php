@@ -8,14 +8,7 @@
     <div class="row">
         <div class="col-xl-12">
             <div class="card-box">
-
-
-
-
-
-
                 <h4 class="header-title mt-0 mb-3">{{ trans('admin.edit_section') }}</h4>
-
                 <form action="/{{ app()->getLocale() }}/admin/sections/edit/{{ $section->id }}" method="post"
                     enctype="multipart/form-data" novalidate>
                     @csrf
@@ -45,7 +38,7 @@
                                     <input type="text" name="{{ $locale }}[title]"
                                         value="{{ $section->translate($locale)->title ?? '' }}" parsley-trigger="change"
                                         class="@error('title') danger @enderror form-control"
-                                        id="{{ $locale }}-title" Required>
+                                        id="{{ $locale }}-title" maxlength='100' Required>
                                 </div>
                                 <div class="form-group">
                                     <label for="{{ $locale }}-slug">{{ trans('admin.slug') }}</label>
@@ -60,7 +53,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="{{ $locale }}-desc">{{ trans('admin.desc') }}</label>
-                                    <textarea id="{{ $locale }}-desc" name="{{ $locale }}[desc]"
+                                    <textarea  id="{{ $locale }}-desc" name="{{ $locale }}[desc]"
                                         class="form-control ckeditor">{{ $section->translate($locale)->desc ?? '' }}</textarea>
                                 </div>
                                 <div class="form-group">
@@ -83,13 +76,13 @@
                         @endforeach
                     </div>
                     <div style="padding-top:20px">
-                        <!-- <div class="form-group">
+                     <div class="form-group">
                             <label for="cover">{{ trans('admin.cover') }}</label>
                             <br>
                             <div class="row">
                                 <input type="file" name="cover" value="" multiple>
                                 @if (isset($section->cover) && $section->cover != '')
-                                    <div class="col-md-8 dfie d-flex">
+                                    <div class="col-md-8 dfile d-flex">
                                         <img src="{{ image($section->cover) }}" alt="" style="width: 25%">
 
                                         <span class="deletefile" data-id="{{ $section->id }}"
@@ -99,16 +92,8 @@
                                         {{-- {{dd($section)}} --}}
                                     </div>
                                 @endif
-
-
-
                             </div>
-
-
-
-                        </div> -->
-
-
+                        </div>
                         <input type="hidden" name="id" value="cover" />
                         <div class="form-group">
                             <label for="type">{{ trans('admin.type') }}</label>
@@ -117,70 +102,29 @@
                                     style="display:block; color:rgb(239, 83, 80)">{{ trans('admin.type_is_required') }}</small>
                             @enderror
 
-                            <select class="form-control  @error('type') danger @enderror " name="type_id" id="typeselect" @if($section->type_id == 13) disabled @endif>
+                            <select class="form-control  @error('type') danger @enderror " name="type_id" id="typeselect">
 
                                 @foreach ($sectionTypes as $key => $type)
                                     <option value="{{ $type['id'] }}"
                                         {{ $type['id'] == $section->type_id ? 'selected' : '' }}>
                                         {{ trans('sectionTypes.' . $key) }}</option>
+                                     
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group form-for-color ">
-                            <label for="color">{{ trans('admin.section_color') }}</label>
-                            <br>
-                            @if (isset($section->additional['color']))
-                                <input id="color" value="{{ $section->additional['color'] }}" type="color" name="color">
-                            @else
-                                <input id="color" value="#EBEDF3" type="color" name="color">
-                            @endif
-                        </div>
-                        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-                                                crossorigin="anonymous"></script>
-                        <script>
-                            $('#typeselect').change(function() {
-                                if ($(this).val() != '9') {
-                                    $(".form-for-color").removeClass("open");
-                                } else {
-                                    $(".form-for-color").addClass("open");
-                                }
-                            }).trigger("change");
-                        </script>
-
-                        <style>
-                            .form-for-color {
-                                height: 0;
-                                overflow: hidden;
-                                transition-duration: 1s
-                            }
-
-                            .open {
-                                height: 60px;
-                            }
-
-                        </style>
-
-
-
-
-<div class="form-group">
-                        <label for="parent">{{ trans('admin.parent') }}</label>
-                        @if (isset($_GET['type']) && ($_GET['type'] == 13))
-                        <select class="form-control select2" name="parent_id" id="parent">
-                            <option value="">{{ trans('admin.parent') }}</option>
-                          
-                            <option value="13">{{ $sec[app()->getlocale()]->title }}</option>
-                            @else
-                            <select class="form-control select2" name="parent_id" id="parent">
-                            <option value="">{{ trans('admin.parent') }}</option>
-                            @foreach ($sections as $key => $sec)
-                            <option value="{{ $sec->id }}">{{ $sec[app()->getlocale()]->title }}</option>
-                            @endforeach
-                        </select>
-                        @endif
+                            <div class="form-group">
+                            <label for="parent">{{ trans('admin.parent') }}</label>
                             
-                        </select>
-                    </div>
+                            <select class="form-control select2" name="parent_id" id="parent">
+
+                                <option value="">{{ trans('admin.parent') }}</option>
+                                @foreach ($sections as $key => $sec)
+                                    <option value="{{ $sec->id }}"
+                                        {{ $sec->id == $section->parent_id ? 'selected' : '' }}>{{ $sec[app()->getlocale()]->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                         @foreach (menuTypes() as $key => $menuType)
                             <div class="checkbox checkbox-primary">
 

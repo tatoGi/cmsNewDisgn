@@ -15,12 +15,14 @@ class SubmissionController extends Controller
         if (isset(request()->all()['post_id'])) {
             $post = Post::where('id', request()->all()['post_id'])->with('translations')->first();
             
-            $submissions = Submission::orderBy('created_at', 'desc')->where('post_id', request()->all()['post_id'])->with('post')->paginate(10);
+            $submissions = Submission::orderBy('created_at', 'desc')->where('post_id', request()->all()['post_id'])->with('post')->fastPaginate(10);
         }
         else {
             $submissions = Submission::orderBy('created_at', 'desc')->with('post')->paginate(10);
         }
-        return view('admin.submissions.index', compact(['submissions', 'post']));
+        $notifications = Submission::where('seen', 0)->with('post.parent')->orderBy('created_at', 'desc')->get();
+        
+        return view('admin.submissions.index', compact(['submissions', 'post','notifications']));
 
     }
 

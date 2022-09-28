@@ -11,7 +11,7 @@ use UniSharp\LaravelFilemanager\Middlewares\MultiUser;
 
 class Lfm
 {
-    const PACKAGE_NAME = 'laravel-filemanager';
+    const PACKAGE_NAME = 'filemanager';
     const DS = '/';
 
     protected $config;
@@ -20,6 +20,7 @@ class Lfm
     public function __construct(Config $config = null, Request $request = null)
     {
         $this->config = $config;
+       
         $this->request = $request;
     }
 
@@ -195,6 +196,12 @@ class Lfm
      */
     public function allowMultiUser()
     {
+        $type_key = $this->currentLfmType();
+
+        if ($this->config->has('lfm.folder_categories.' . $type_key . '.allow_private_folder')) {
+            return $this->config->get('lfm.folder_categories.' . $type_key . '.allow_private_folder') === true;
+        }
+
         return $this->config->get('lfm.allow_private_folder') === true;
     }
 
@@ -208,6 +215,12 @@ class Lfm
     {
         if (! $this->allowMultiUser()) {
             return true;
+        }
+
+        $type_key = $this->currentLfmType();
+
+        if ($this->config->has('lfm.folder_categories.' . $type_key . '.allow_shared_folder')) {
+            return $this->config->get('lfm.folder_categories.' . $type_key . '.allow_shared_folder') === true;
         }
 
         return $this->config->get('lfm.allow_shared_folder') === true;

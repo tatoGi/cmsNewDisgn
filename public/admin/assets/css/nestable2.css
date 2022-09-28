@@ -1,0 +1,93 @@
+.dd {
+  max-width: initial;
+}
+
+.dd-item {
+
+  font-size: 18px;
+}
+
+.dd-handle {
+  height: 50px;
+  background-color: #71b6f9;
+  border: 2px solid #71b6f9;
+  font-size: 18px;
+  padding: 12px 20px;
+  color: white;
+  transition-duration: 0.3s;
+  align-items: center;
+
+}
+
+.dd-item:hover .dd-handle {
+  cursor: grab;
+  background-color: white;
+  color: #71b6f9;
+}
+
+.dd-item {
+  position: relative;
+  max-height:100%;
+
+}
+
+.dd-item .change-icons {
+  position: absolute;
+  right: 8px;
+  z-index: 2;
+  top: 5px;
+}
+
+.dd-item .fas,
+.dd-item .fa-eye,
+.dd-item .fa-envelope {
+  color: white;
+  padding: 10px 10px;
+  transition-duration: 0.3s
+}
+
+.dd-item:hover .fa-trash-alt:hover {
+  color: #ff5b5b;
+}
+
+.dd-item:hover .fa-pencil-alt:hover {
+  color: #5b69bc;
+}
+
+.dd-item:hover .fa-envelope:hover {
+  color: #5b69bc;
+}
+
+.dd-item:hover .fa-eye:hover {
+  color: #f9c851;
+}
+
+.dd-collapse,
+.dd-expand {
+  display: none
+}
+
+.dd-item:hover .fas,
+.dd-item:hover .fa-eye,
+.dd-item:hover .fa-envelope {
+  color: #71b6f9
+}
+
+.dd-item>button.dd-collapse:before {
+  display: none;
+}
+.successfully-saved {
+display: none;
+color: #1B7C18;										
+border-radius: 5px;
+border: 2px solid #1B7C18;
+padding: .5em .75em;
+background: #D6F8DD;
+width: 25%;
+margin-top: 20px;
+
+
+}
+.successfully-saved .show{
+  display: block;
+}

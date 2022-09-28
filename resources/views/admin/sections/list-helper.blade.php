@@ -6,7 +6,7 @@
           {{ $section[app()->getlocale()]->title }}
       </div>
       <div class="change-icons">
-          @if ($section->type['type'] != 1 && $section->type['type'] != 13 && $section->type['type'] != 9 )
+          @if (isset($section->type['type']) && !in_array($section->type['type'],[1, 13 ,9]))
           <a href="/{{ app()->getLocale() }}/admin/section/{{ $section->id }}/posts/" class="far fa-eye"></a>
           @endif
           @if (auth()->user()->isType('admin'))
@@ -30,67 +30,3 @@
   </li>
   @endforeach
 </ol>
-
-{{-- <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5><strong>ნამდვილად გსურთ სექციის წაშლა ?</strong></h5>
-          </div>
-          <div class="modal-footer">
-
-              <button type="button" style="border:none; background-color:transparent; color:blue"
-                  data-dismiss="modal">გაუქმება</button>
-
-              <a href="/{{ app()->getLocale() }}/admin/sections/destroy/{{ $section->id }}" style="color: red">
-                  დადასტურება
-              </a>
-          </div>
-      </div>
-  </div>
-</div> --}}
-
-{{-- <style>
-.acordion{
-  height: 57px;
-  overflow: hidden;
-}
-.opened{
-  height: initial;
-}
-.arrow{
-  display: inline-block;
-  transform: rotate(-90deg);
-  font-size: 34px;
-  position: relative;
-  top: 8px;
-  cursor: pointer;
-}
-.rotate{
-  transform: rotate(0deg);
-  display: inline-block
-}
-</style>  --}}
-{{-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> --}}
-
-{{-- <script>
-$('#confirm-delete').on('show.bs.modal', function (e) {
-    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-});
-
-
-
-$(".button_je").on('click', function () {
-  var parent_li = $(this).parent().parent();
-  parent_li.addClass('opened');
-});
-
-
-
-$(".button_je").on('click', function () {
-  $(this).addClass('rotate');
-});
-
-
-</script> --}}

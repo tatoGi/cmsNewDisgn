@@ -38,36 +38,25 @@ class UploadFilesController extends Controller
   }
 
   public function deleteImage(Request $request) {
-    dd($request);
+  
     $files = $request->input('files');
-
-
     if(!is_array($files)) {
       $files = [0 => $files];
     }
-
-
-
+    
     foreach ($files as $file) {
-      if(File::exists(config('config.image_path').$file->file)) {
-        File::delete(config('config.image_path').$file->file);
       
-        
+      if(File::exists(config('config.image_path').$file)) {
+        File::delete(config('config.image_path').$file);
     }
-    if(File::exists(config('config.image_path').'thumb/'.$file->file)) {
-      File::delete(config('config.image_path').'thumb/'.$file->file);
-      
+    if(File::exists(config('config.image_path').'thumb/'.$file)) {
+      File::delete(config('config.image_path').'thumb/'.$file);
     }
-
-    $file->delete();
-  
+    
     }
-
     DB::table('temp_files_table')->whereIn('file_name', $files)->delete();
     DB::table('post_files')->whereIn('file', $files)->delete();
-
     DB::table('posts')->whereIn('thumb', $files)->update(['thumb' => null]);
-
     return ['error' => false];
   }
 
@@ -166,4 +155,5 @@ class UploadFilesController extends Controller
 
     return $response;
   }
+
 }

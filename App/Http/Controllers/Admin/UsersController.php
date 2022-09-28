@@ -9,6 +9,7 @@ use App\Models\UserLog;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Submission;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,10 +20,15 @@ class UsersController extends Controller
      *  returns users list where superuser can edit add or delete any user (delete everyone exept himself)
      * @return void
      */
-    public function index(){
+    public function index(Request $request){
         $users = User::where('type_id', '!=', 4)->get();
-        
-        return view('admin.users.list', compact('users'));
+        $notifications = Submission::where('seen', 0)->with('post.parent')->orderBy('created_at', 'desc')->get();
+        if($request->filled('search')){
+            $users = User::search($request->search)->get();
+        }else{
+            $users = User::get();
+        }
+        return view('admin.users.list', compact('users','notifications'));
     }
     /**
      * index
@@ -45,7 +51,8 @@ class UsersController extends Controller
     public function create(){
       
         $user_types = Config::get('userTypes');
-        return view('admin.users.add', compact(['user_types']));
+        $notifications = Submission::where('seen', 0)->with('post.parent')->orderBy('created_at', 'desc')->get();
+        return view('admin.users.add', compact(['user_types','notifications']));
     }
     /**
      * store
@@ -54,29 +61,30 @@ class UsersController extends Controller
      * @return void
      */
     public function store(Request $request){
-        
+       
+       $values = $request->all();
        
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'email|unique:users|required',
             'type_id' => 'required',
             'password' => 'required_with:re_password|same:re_password|min:8',
-        ]);
-     
-        if($request->image != ''){
-
-            $originalName = $request->image->getClientOriginalName();
-          
-            $request->image->move(config('config.image_path'), $originalName);
             
-            $values['image'] = $originalName;
+        ]);
+        
+        if($request->HasFile('avatar')){
+            dd($request);
+            $image = $request->file('avatar');
+            $imagename = $image->getClientOriginalName();
+            $image->storeAs((config('config.image_path')) ,  $imagename);
+            $values['image'] = $imagename;
            
         }
-        
+       
         $user['name'] = $request->all()['name'];
         $user['email'] = $request->all()['email'];
         $user['type_id'] = $request->all()['type_id'];
-        $user['image'] = $originalName;
+        $user['image'] = $values['image'];
        
         $user['password'] = Hash::make($request->all()['password']);
       
@@ -84,8 +92,6 @@ class UsersController extends Controller
         
         User::create($user);
         return $this->index();
-       
-        
     }
 
   
@@ -139,8 +145,8 @@ class UsersController extends Controller
     public function edit($id){
         $user = User::find($id);
         $user_types = Config::get('userTypes');
-
-        return view('admin.users.edit', compact(['user', 'user_types']));
+        $notifications = Submission::where('seen', 0)->with('post.parent')->orderBy('created_at', 'desc')->get();
+        return view('admin.users.edit', compact(['user', 'user_types','notifications']));
     }
 
 
@@ -155,26 +161,25 @@ class UsersController extends Controller
     public function update(Request $request, $id){
        
         $user = User::find($id);
+        $values = $request->all();
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'email|required|unique:users,email,'.$user->id,
             'type_id' => 'required'
         ]);
-        
-        if($user->image != ''){
-
-            $originalName = $user->image->getClientOriginalName();
-           
-            $user->image->move(config('config.image_path'), $originalName );
-            
-            $values['image'] = $originalName;
+        if($request->HasFile('avatar')){
+            dd($request);
+            $image = $request->file('avatar');
+            $imagename = $image->getClientOriginalName();
+            $image->storeAs((config('config.image_path')) ,  $imagename);
+            $values['image'] = $imagename;
            
         }
        
         $user->name = $request->all()['name'];
         $user->email = $request->all()['email'];
         $user->type_id = $request->all()['type_id'];
-        $user['image'] = $request->all()['image'];
+        $user['image'] = $values['image'];
         
         if ($request->all()['password'] !== null) {
             $request->validate([
@@ -219,8 +224,9 @@ class UsersController extends Controller
     }
     
     public function DeleteImages($que) {
-       
+       dd($que);
         $user = user::where('id', $que)->first();
+        dd($user->image);
         if($user->image != ''){
             unlink(config('config.image_path').$user->image);
         }

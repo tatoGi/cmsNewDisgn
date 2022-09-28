@@ -110,7 +110,7 @@
 
                     <span class="line-1"></span>
                 </div>
-
+                @if(isset($about_section->posts[0]))
                 <div class="about-position-box">
                     <div class="row wrap-row">
 
@@ -150,6 +150,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </section>

@@ -49,7 +49,7 @@ $.fn.dropUpload = function(a) {
 	$this.prev().wrap("<div class='form-group'></div>");
   
 	var uploadFile = function(file) {
-  
+		
 	  if(!ValidateFile(file) && a.image) {
 		alert(file.name + " isn't image");
 		return false;
@@ -66,6 +66,9 @@ $.fn.dropUpload = function(a) {
 	  $this.find('ul').append($el);
 	  formData.append('file', file);
 	  var $aj = $.ajax({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		  },
 		type: "POST",
 		url: $this.attr('data-action'),
 		data: formData,
@@ -110,31 +113,6 @@ $.fn.dropUpload = function(a) {
   
 		  console.log(data);
   
-		//   $el.find('.close-it').unbind('click').click(function(e){
-		// 	e.stopPropagation();
-  
-		// 	$p = $(this).parent();
-		// 	$.post($this.attr('data-delete'), {
-		// 	  files: $el.find('input[type="hidden"]').val()
-		// 	}, function(data) {
-		// 	  $p.remove();
-		// 	  if($this.find('li').length > 0) {
-		// 		$this.find('li').eq(0).addClass('active');
-		// 		$thumb.val($this.find('li').eq(0).find('input[type=hidden]').val());
-		// 	  }
-		// 	  else {
-		// 		$thumb.val('');
-		// 	  }
-		// 	  console.log(data);
-		// 	});
-		// 	console.log('removed');
-		//   });
-  
-		//   $el.click(function(){
-		// 	$this.find('.active').removeClass('active');
-		// 	$(this).addClass('active');
-		// 	$thumb.val($(this).find('input[type="hidden"]').val());
-		//   });
 		},
 		error: function (error) {
 		  // handle error
@@ -148,12 +126,25 @@ $.fn.dropUpload = function(a) {
 	  });
   
 	  $el.find('.close-it').click(function(e){
-		e.preventDefault();
-		$aj.abort();
-		console.log('aborted');
-		$(this).parent().remove();
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+	  e.stopPropagation();
+	  e.preventDefault();
+	 
+	  $.post($this.attr('data-delete'), {
+		files: $(this).next().val()
+		
+	  }, function(data) {
+		console.log(data);
+	  });
   
-		if($this.find('li').length > 0) {
+	  $(this).parent().remove();
+	  console.log('removed');
+	 
+	  if($this.find('li').length > 0) {
 		  $this.find('li').eq(0).addClass('active');
 		  $thumb.val($this.find('li').eq(0).find('input[type=hidden]').val());
 		}
@@ -178,6 +169,7 @@ $.fn.dropUpload = function(a) {
   
   
 	var createElement = function() {
+		
 	  var $el = $("<li>").addClass('uploading');
 	  $el.append($("<div class='progress-wrap'>").append($('<div class="progress">').append('<div class="progress-bar">'))).append('<div class="close-it">');
 	  
@@ -216,18 +208,25 @@ $.fn.dropUpload = function(a) {
 	});
   
 	$('.close-it').click(function(e){
+		
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
 	  e.stopPropagation();
 	  e.preventDefault();
-  
+	 
 	  $.post($this.attr('data-delete'), {
 		files: $(this).next().val()
+		
 	  }, function(data) {
 		console.log(data);
 	  });
   
 	  $(this).parent().remove();
 	  console.log('removed');
-  
+	 
 	  if($this.find('li').length > 0) {
 		  $this.find('li').eq(0).addClass('active');
 		  $thumb.val($this.find('li').eq(0).find('input[type=hidden]').val());

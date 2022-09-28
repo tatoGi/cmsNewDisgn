@@ -18,7 +18,7 @@ class SecretCommand extends Command
     {
         $this
             ->setName('secret')
-            ->addArgument('environment', InputArgument::OPTIONAL, 'The environment name', 'staging')
+            ->addArgument('environment', InputArgument::OPTIONAL, 'The environment name')
             ->addOption('name', null, InputOption::VALUE_OPTIONAL, 'The secret name')
             ->addOption('value', null, InputOption::VALUE_OPTIONAL, 'The secret value')
             ->addOption('file', null, InputOption::VALUE_OPTIONAL, 'The file that contains the secret value')
@@ -42,7 +42,7 @@ class SecretCommand extends Command
         );
 
         Helpers::info('Secret stored successfully.');
-        Helpers::line('You should deploy the project to ensure the new secrets are available.');
+        Helpers::line('You should deploy the project using the "deploy" command to ensure the new secrets are available.');
     }
 
     /**

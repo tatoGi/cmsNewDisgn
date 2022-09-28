@@ -1,81 +1,91 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Contracts\BrandContract;
-use App\Contracts\CategoryContract;
-use App\Contracts\ProductContract;
-use App\Http\Controllers\BaseController;
-use App\Http\Requests\StoreProductFormRequest;
-
-class ProductController extends BaseController
+use App\Models\Product;
+class ProductController extends Controller
 {
-    protected $brandRepository;
-
-    protected $categoryRepository;
-
-    protected $productRepository;
-
-    public function __construct(
-        BrandContract $brandRepository,
-        CategoryContract $categoryRepository,
-        ProductContract $productRepository
-    )
-    {
-        $this->brandRepository = $brandRepository;
-        $this->categoryRepository = $categoryRepository;
-        $this->productRepository = $productRepository;
-    }
-
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
     public function index()
     {
-        $products = $this->productRepository->listProducts();
-
-        $this->setPageTitle('Products', 'Products List');
+        $products = Product::all();
+        dd($products);
         return view('admin.products.index', compact('products'));
     }
-
-    public function create()
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function cart()
     {
-        $brands = $this->brandRepository->listBrands('name', 'asc');
-        $categories = $this->categoryRepository->listCategories('name', 'asc');
-
-        $this->setPageTitle('Products', 'Create Product');
-        return view('admin.products.create', compact('categories', 'brands'));
+        return view('admin.products.cart');
     }
-
-    public function store(StoreProductFormRequest $request)
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function addToCart($id)
     {
-        $params = $request->except('_token');
-
-        $product = $this->productRepository->createProduct($params);
-
-        if (!$product) {
-            return $this->responseRedirectBack('Error occurred while creating product.', 'error', true, true);
+        
+        $product = Product::findOrFail($id);
+         
+        $cart = session()->get('cart', []);
+  
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "size" => $product->size,
+                "wight" => $product->wight,
+                "image" => $product->image
+            ];
         }
-        return $this->responseRedirect('admin.products.index', 'Product added successfully' ,'success',false, false);
+          
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
-
-    public function edit($id)
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function update(Request $request)
     {
-        $product = $this->productRepository->findProductById($id);
-        $brands = $this->brandRepository->listBrands('name', 'asc');
-        $categories = $this->categoryRepository->listCategories('name', 'asc');
-
-        $this->setPageTitle('Products', 'Edit Product');
-        return view('admin.products.edit', compact('categories', 'brands', 'product'));
-    }
-
-    public function update(StoreProductFormRequest $request)
-    {
-        $params = $request->except('_token');
-
-        $product = $this->productRepository->updateProduct($params);
-
-        if (!$product) {
-            return $this->responseRedirectBack('Error occurred while updating product.', 'error', true, true);
+        if($request->id && $request->quantity){
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Cart updated successfully');
         }
-        return $this->responseRedirect('admin.products.index', 'Product updated successfully' ,'success',false, false);
+    }
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function remove(Request $request)
+    {
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Product removed successfully');
+        }
     }
 }

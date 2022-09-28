@@ -8920,7 +8920,7 @@ a.text-blue:hover, a.text-blue:focus {
   padding: 1.5rem;
   -webkit-box-shadow: 0 0.75rem 6rem rgba(56, 65, 74, 0.03);
           box-shadow: 0 0.75rem 6rem rgba(56, 65, 74, 0.03);
-  margin-bottom: 24px;
+ margin: 30px;
   border-radius: 0.25rem; }
   .card-box .card-drop {
     color: #98a6ad;

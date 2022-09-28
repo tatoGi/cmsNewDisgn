@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
+use Laravel\Scout\Attributes\SearchUsingFullText;
 use Astrotomic\Translatable\Translatable;
 
 class Post extends Model
 {
-    use HasFactory;
-    use Translatable;
+    use HasFactory, Translatable, Searchable;
+    
 
     protected $casts = [
         'additional' => 'collection'
@@ -50,8 +52,8 @@ class Post extends Model
     {
         return $this->hasMany(Submission::class, 'post_id', 'id');
     }
-
-
+    
+ 
 
     /**
      * Get the user associated with the Post

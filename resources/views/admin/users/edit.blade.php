@@ -9,12 +9,12 @@
 @section('content')
 <div class="row">
     <div class="col-xl-8">
-        <div class="card-box">
+        <div class="card-box" style="margin-left: 30px">
 
 
             <h4 class="header-title mt-0 mb-3">{{ trans('admin.edit_user') }}</h4>
 
-            <form action="/{{ app()->getLocale() }}/admin/users/edit/{{ $user->id }}" method="post"
+            <form action="/{{ app()->getLocale() }}/admin/users/edit/{{ $user->id }}" method="post"  enctype="multipart/form-data"
                 data-parsley-validate novalidate>
                 @csrf
                 <div class="form-group">
@@ -72,19 +72,81 @@
                     <label for="image">{{ trans('admin.images') }}</label>
                     <br>
                     <div class="row">
-                        <input type="file" name="image" value="image" multiple>
-                        @if (isset($user->image) && $user->image != '')
+                        <input type="file" 
+                        class="filepond"
+                        name="filepond"
+                        accept="image/png, image/jpeg, image/gif"/>
                       
-                        <div class="col-md-8 dfie d-flex">
-                            <img src="{{ image($user->image) }}" alt="" style="width: 200px; height:200px">
-                               
-                            <span class="DeleteImages" data-id="{{ $user->id }}" data-token="{{ csrf_token() }}"
-                                data-route="/{{ app()->getLocale() }}/admin/users/DeleteImages/{{ $user->id }}"
-                                delete="{{ $user->image }}">X</span>
-                            <input type="hidden" name="id" value="image" />
-
-                        </div>
-                        @endif
+                        
+                        <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+                        <script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.min.js"></script>
+                        <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js"></script>
+                        <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.min.js"></script>
+                        <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
+                        <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.min.js"></script>
+                        <script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.min.js"></script>
+                        <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.min.js"></script>
+                        <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.min.js"></script>
+                        
+                        
+                        <script>
+                           FilePond.registerPlugin(
+	// encodes the file as base64 data
+  FilePondPluginFileEncode,
+	
+	// validates files based on input type
+  FilePondPluginFileValidateType,
+	
+	// corrects mobile image orientation
+  FilePondPluginImageExifOrientation,
+	
+	// previews the image
+  FilePondPluginImagePreview,
+	
+	// crops the image to a certain aspect ratio
+  FilePondPluginImageCrop,
+	
+	// resizes the image to fit a certain size
+  FilePondPluginImageResize,
+	
+	// applies crop and resize information on the client
+  FilePondPluginImageTransform
+);
+                            FilePond.create(
+                                            document.querySelector('input'),
+                                            {
+                                                labelIdle: `Drag & Drop your picture or <span class="filepond--label-action">Browse</span>`,
+                                            imagePreviewHeight: 170,
+                                            imageCropAspectRatio: '1:1',
+                                            imageResizeTargetWidth: 200,
+                                            imageResizeTargetHeight: 200,
+                                            stylePanelLayout: 'compact circle',
+                                            styleLoadIndicatorPosition: 'center bottom',
+                                            styleButtonRemoveItemPosition: 'center bottom'
+                                            }
+                                        );
+                            FilePond.setOptions({
+                                server:{
+                                    url:'/admin/users/store',
+                                    headers:{
+                                        'X-CSRF-TOKEN':'{{ csrf_token() }}'
+                                    }
+                                }
+                            })
+                              FilePond.registerPlugin(
+                                
+                                // encodes the file as base64 data
+                            FilePondPluginFileEncode,
+                                
+                          
+                                
+                                // corrects mobile image orientation
+                                FilePondPluginImageExifOrientation,
+                                
+                                // previews dropped images
+                            FilePondPluginImagePreview
+                            );
+                        </script>
                     
 
                     </div>
@@ -104,14 +166,10 @@
     </div>
     <div class="col-md-4">
         <div class="card card-user">
-            <div class="image">
-                <img src="/uploads/img/user-profile.jpg" alt="...">
-            </div>
             <div class="card-body">
                 <div class="author">
                     <a href="#">
                         @if(isset( $user->image ))
-                        }
                         <img class="avatar border-gray" src="{{ image($user->image) }}" alt="...">
                         @else
                         <img src="/uploads/img/user-profile.jpg" style="width: 30%;" alt="">
@@ -150,6 +208,34 @@
     .danger {
         border: 1px solid rgb(239, 83, 80) !important;
     }
+/*
+ * FilePond Custom Styles
+ */
+
+ .filepond--drop-label {
+	color: #4c4e53;
+}
+
+.filepond--label-action {
+	text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+	background-color: #edf0f4;
+}
+
+
+/**
+ * Page Styles
+ */
+html {
+	padding: 20vh 0 0;
+}
+
+.filepond--root {
+	width:170px;
+	margin: 0 auto;
+}
 
 </style>
 @endpush

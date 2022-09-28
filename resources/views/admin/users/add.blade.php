@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-xl-12">
+    <div class="col-xl-12" style="padding: 30px">
         <div class="card-box">
 
             <h4 class="header-title mt-0 mb-3">{{ trans('admin.add_user') }}</h4>

@@ -1,5 +1,8 @@
+
+<form  method="post"  enctype="multipart/form-data" >
+@csrf
 @if (isset($section->fields['trans']) && count($section->fields['trans']) > 0)
-    <ul class="nav nav-tabs">
+<ul class="nav nav-tabs">
         
         @foreach (config('app.locales') as $locale)
         <li class="nav-item ">
@@ -10,6 +13,8 @@
         @endforeach
             
     </ul>
+    
+@endif
     <div class="tab-content">
         @foreach (config('app.locales') as $locale)
         <div role="tabpanel" class="tab-pane fade @if($locale == app()->getLocale()) active show @endif " id="locale-{{ $locale }}">
@@ -20,15 +25,12 @@
         @endforeach
     </div> 
 
-    
-@endif
-@if (isset($section->fields['nonTrans']) && count($section->fields['nonTrans']) > 0)        
+    @if (isset($section->fields['nonTrans']) && count($section->fields['nonTrans']) > 0)        
     @foreach ($section->fields['nonTrans'] as $key => $field)
         @include('admin.form-controllers.nonTrans.'.$field['type'])
     @endforeach 
-@endif             
-            
- {{-- <div class="form-group">
+@endif   
+{{-- <div class="form-group">
     {{ Form::text($key, null, array_merge(['class' => 'form-control', 'placeholder' => "dd/mm/yyyy", 'id' => "timepicker3"])) }}
 </div>  --}}
 @if(($section->type_id !== 3) && ($section->type_id !== 4) && ($section->type_id !== 11) && ($section->type_id !== 10)  && ($section->type_id !== 7) && ($section->type_id !== 8))
@@ -50,4 +52,9 @@
         {{ trans('admin.save') }}
     </button>
 </div>
-                
+           
+</form>
+
+          
+            
+      

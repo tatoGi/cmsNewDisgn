@@ -6,7 +6,7 @@
         <div class="h-bg-2"></div>
     </div>
 
-  
+
     <div class="header-pos-container">
         <div class="container">
             <div class="flexy-container">
@@ -61,6 +61,7 @@
 
                         <ul>
                             @foreach ($sections as $section)
+                          
                             @if ($sections !== 0)
                             
                             <li  @if (isset($model[app()->getlocale()]->slug) && ($model[app()->getlocale()]->slug  == $section[app()->getlocale()]->slug)) class="colored" @endif>

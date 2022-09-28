@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contracts\ProductContract;
+use App\Http\Controllers\Website\HomePageController;
+use App\Http\Controllers\Website\NotificationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use  Illuminate\Auth\AuthServiceProvider;
 use App\Http\Controllers\Website\RoutesController;
 use App\Http\Controllers\Website\PagesController;
 use App\Http\Controllers\Website\SearchController;
+use App\Http\Controllers\Website\ProductController;
 use App\Models\Post;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use App\Mail\Mailers;
 use \UniSharp\LaravelFilemanager\Lfm;
 
@@ -55,27 +60,28 @@ Auth::routes();
 | Check if user is auth
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-    Lfm::routes();
+Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });
-Route::middleware(['auth.check'])->group(function () {
+
     /*
     |--------------------------------------------------------------------------
     | Check if user is SUPERUSER
     |--------------------------------------------------------------------------
     */
 
-    Route::middleware('isSuperuser')->group(function () {
+    Route::middleware('isSuperuser','locale','auth.check')->group(function () {
         Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
 
         // Admin\UploadFilesController
         Route::post('/admin/upload/image', [UploadFilesController::class, 'uploadImage'])->name('image.upload');
         Route::post('/admin/upload/image/delete', [UploadFilesController::class, 'deleteImage'])->name('image.del');
         Route::get('/admin/upload/image/delete', [UploadFilesController::class, 'clearChache'])->name('image.clear');
+        
         //Profile ------------------------------------->
         Route::get('/admin/users', [UsersController::class, 'index']);
         Route::get('/admin/users/add', [UsersController::class, 'create']);
-        Route::post('/admin/users/add', [UsersController::class, 'store']);
+        Route::post('/admin/users/store', [UsersController::class, 'store']);
         Route::get('/admin/users/edit/{id}', [UsersController::class, 'edit']);
         Route::get('/admin/users/logs/{id}', [UsersController::class, 'logs']);
         Route::post('/admin/users/edit/{id}', [UsersController::class, 'update']);
@@ -121,52 +127,39 @@ Route::middleware(['auth.check'])->group(function () {
 
         Route::delete('/admin/sections/DeleteCover/{que}', [SectionController::class, 'DeleteCover']);
         Route::delete('/admin/section/posts/DeleteFile/{que}', [PostController::class, 'DeleteFile']);
+        //category.............
+        Route::get('/admin/category', [CategoryController::class, 'index']);
 
-
-
-        // Route::get('/', 'ChatsController@index');
-        // Route::get('messages', 'ChatsController@fetchMessages');
-        // Route::post('messages', 'ChatsController@sendMessage');
-
-
-        //  categories ---------------------------
-        //  Route::get('/admin/categories', [CategoryController::class, 'index'])->name('categories.index');
-        //  Route::get('/admin/categories/create', [CategoryController::class, 'create'])->name('categories.create');
-        //  Route::post('/admin/categories/store', [CategoryController::class, 'store'])->name('categories.store');
-        //  Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
-        //  Route::post('/admin/categories/update', [CategoryController::class, 'update'])->name('categories.update');
-        //  Route::get('/admin/categories/{id}/delete', [CategoryController::class, 'destroy'])->name('categories.delete');
-       
-        //  Route::group(['prefix' => 'products'], function () {
-
-        //     Route::get('/', 'Admin\ProductController@index')->name('admin.products.index');
-        //     Route::get('/create', 'Admin\ProductController@create')->name('admin.products.create');
-        //     Route::post('/store', 'Admin\ProductController@store')->name('admin.products.store');
-        //     Route::get('/edit/{id}', 'Admin\ProductController@edit')->name('admin.products.edit');
-        //     Route::post('/update', 'Admin\ProductController@update')->name('admin.products.update');
+        //mailers...............
+        Route::get('/admin/mailers', [EmailerController::class, 'index'])->name('admin.mailers');
+        Route::get('/admin/mailers/add', [EmailerController::class, 'add']);
+        Route::post('/admin/mailers/store', [EmailerController::class, 'store']);
+        Route::get('/admin/mailers/edit/{id}', [EmailerController::class, 'edit'])->name('email.edit');
+        Route::post('/admin/mailers/update/{id}', [EmailerController::class, 'update'])->name('email.update');
+        Route::get('/admin/mailers/delete/{id}', [EmailerController::class, 'delete'])->name('email.delete');
+        Route::get('/admin/send-mail',[EmailerController::class, 'emailSend'])->name('send.email');
+        //calendar...................
+        Route::get('/admin/calendar-event', [FullCalendarController::class, 'index']);
+        Route::post('/admin/calendar-crud-ajax', [FullCalendarController::class, 'calendarEvents']);
+        Route::post('/admin/fullcalendar/create', [FullCalendarController::class, 'create']);
+        Route::post('/admin/fullcalendar/update', [FullCalendarController::class, 'update']);
+        Route::post('/admin/fullcalendar/delete', [FullCalendarController::class, 'destroy']);
  
-        //     Route::post('images/upload', 'Admin\ProductImageController@upload')->name('admin.products.images.upload');
-        //     Route::get('images/{id}/delete', 'Admin\ProductImageController@delete')->name('admin.products.images.delete');
- 
-        //     Route::get('attributes/load', 'Admin\ProductAttributeController@loadAttributes');
-        //     Route::post('attributes', 'Admin\ProductAttributeController@productAttributes');
-        //     Route::post('attributes/values', 'Admin\ProductAttributeController@loadValues');
-        //     Route::post('attributes/add', 'Admin\ProductAttributeController@addAttribute');
-        //     Route::post('attributes/delete', 'Admin\ProductAttributeController@deleteAttribute');
- 
-        //  });
-        // Route::get('/', 'Admin\CategoryController@index')->name('admin.categories.index');
-        // Route::get('/create', 'Admin\CategoryController@create')->name('admin.categories.create');
-        // Route::post('/store', 'Admin\CategoryController@store')->name('admin.categories.store');
-        // Route::get('/{id}/edit', 'Admin\CategoryController@edit')->name('admin.categories.edit');
-        // Route::post('/update', 'Admin\CategoryController@update')->name('admin.categories.update');
-        // Route::get('/{id}/delete', 'Admin\CategoryController@delete')->name('admin.categories.delete');
     });
+Route::middleware('web','locale')->group(function () {
+Route::post('/submission', [NotificationController::class, 'submission'])->name('submission');
+Route::post('/subscribe', [NotificationController::class, 'subscribe'])->name('subscribe');
+Route::get('/search', [SearchController::class, 'index'])->name('search');
+Route::get('/SearchProduct', [SearchController::class, 'SearchProduct'])->name('SearchProduct');
+Route::any('/', [HomePageController::class, 'index']);
+Route::any('/{all}', [RoutesController::class, 'index'])->where('all', '.*');
+      // products
+      Route::get('/admin/products', [ProductController::class, 'index']);  
+      Route::get('/admin/products/create', [ProductController::class, 'create'])->name('products.create');
+      Route::get('/admin/products/store', [ProductController::class, 'store'])->name('products.store');
+      Route::get('/admin/products/cart', [ProductController::class, 'cart'])->name('cart');
+      Route::get('/admin/products/add-to-cart/{id?}', [ProductController::class, 'addToCart'])->name('add.to.cart');
+      Route::patch('/admin/products/update-cart', [ProductController::class, 'update'])->name('update.cart');
+      Route::delete('/admin/products/remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
 });
 
-Route::post('/submission', [PagesController::class, 'submission'])->name('submission');
-Route::post('/subscribe', [PagesController::class, 'subscribe'])->name('subscribe');
-Route::get('/search', [PagesController::class, 'search'])->name('search');
-Route::get('/SearchProduct', [PagesController::class, 'SearchProduct'])->name('SearchProduct');
-Route::any('/', [PagesController::class, 'homePage']);
-Route::any('/{all}', [RoutesController::class, 'index'])->where('all', '.*');

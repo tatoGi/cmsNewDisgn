@@ -18,8 +18,11 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        ImageWasUploaded::class => [
+            UploadListener::class,
+        ],
     ];
-
+    
     /**
      * Register any events for your application.
      *
